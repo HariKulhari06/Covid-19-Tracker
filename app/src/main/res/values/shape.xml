@@ -17,6 +17,8 @@
     <!--Shape Appearance for large components like side and bottom navigation drawers-->
     <style name="ShapeAppearance.CovidApp.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
         <!--Your custom shape here-->
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
     </style>
     
 </resources>

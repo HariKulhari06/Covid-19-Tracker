@@ -7,9 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.FragmentStatisticsBinding
-import com.hari.covid_19app.item.CardItemDecoration
-import com.hari.covid_19app.item.ItemHeader
-import com.hari.covid_19app.item.ItemStatisticsCard
+import com.hari.covid_19app.item.*
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
@@ -24,10 +22,16 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
 
         val items = mutableListOf<Group>()
 
-        val todaysStatisticssection = Section(ItemHeader())
-        todaysStatisticssection.add(ItemStatisticsCard())
+        val todayStatisticsSection = Section(ItemHeader(R.string.today_statistics))
+        todayStatisticsSection.add(ItemStatisticsCard())
+        items.add(todayStatisticsSection)
 
-        items.add(todaysStatisticssection)
+        val stateAndUt = Section(ItemHeader(R.string.all_state_ut_stats))
+        stateAndUt.add(ItemStatusHeader())
+        for (i in 1..35) {
+            stateAndUt.add(ItemStateAndUtStatusCard())
+        }
+        items.add(stateAndUt)
 
         adapter.update(items)
         binding.recyclerViewStatistics.layoutManager = LinearLayoutManager(requireContext())
@@ -44,5 +48,6 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics) {
         )
         binding.recyclerViewStatistics.adapter = adapter
     }
+
 
 }

@@ -1,5 +1,6 @@
 package com.hari.covid_19app.item
 
+import android.graphics.Color
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend
@@ -55,8 +56,8 @@ class ItemStatisticsCard : BindableItem<ItemStatisticsCardBinding>() {
         // enable rotation of the chart by touch
         chart.isRotationEnabled = false
         chart.isHighlightPerTapEnabled = true
+        chart.setHoleColor(Color.TRANSPARENT)
 
-        chart.setDrawCenterText(true)
 
         chart.rotationAngle = 0f
 

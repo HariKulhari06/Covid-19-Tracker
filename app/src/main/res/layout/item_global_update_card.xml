@@ -12,8 +12,8 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="0dp"
-            android:layout_margin="1dp"
             android:layout_height="wrap_content"
+            android:layout_margin="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,12 +36,12 @@
 
                 <TextView
                     android:id="@+id/title_total_cases"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:gravity="start"
                     android:text="@string/total_cases"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="#16335C"
                     app:layout_constraintEnd_toStartOf="@+id/title_deaths"
                     app:layout_constraintHorizontal_chainStyle="spread_inside"
                     app:layout_constraintStart_toStartOf="parent"
@@ -54,10 +54,11 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/sf_pro_display_bold"
                     android:text="1,254,464"
+
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="@color/blue"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@id/text_total_cases"
+                    app:layout_constraintStart_toStartOf="@+id/title_total_cases"
                     app:layout_constraintTop_toBottomOf="@+id/title_total_cases" />
 
                 <TextView
@@ -68,18 +69,18 @@
                     android:text="New: + 53,011"
                     android:textAppearance="?attr/textAppearanceCaption"
                     android:textColor="@color/blue"
-                    app:layout_constraintStart_toStartOf="@+id/text_total_cases"
+                    app:layout_constraintStart_toStartOf="@+id/title_total_cases"
                     app:layout_constraintTop_toBottomOf="@+id/text_total_cases" />
 
 
                 <TextView
                     android:id="@+id/title_deaths"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="@string/total_cases"
+                    android:gravity="center"
+                    android:text="@string/deaths"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="#16335C"
                     app:layout_constraintEnd_toStartOf="@+id/title_recovered"
                     app:layout_constraintStart_toEndOf="@+id/title_total_cases"
                     app:layout_constraintTop_toBottomOf="@+id/title_coronavirus_global" />
@@ -94,7 +95,8 @@
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="@color/red"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="@id/title_deaths"
+                    app:layout_constraintEnd_toEndOf="@+id/title_deaths"
+                    app:layout_constraintStart_toStartOf="@+id/title_deaths"
                     app:layout_constraintTop_toBottomOf="@+id/title_deaths" />
 
                 <TextView
@@ -105,18 +107,19 @@
                     android:text="New: + 53,011"
                     android:textAppearance="?attr/textAppearanceCaption"
                     android:textColor="@color/red"
-                    app:layout_constraintStart_toStartOf="@+id/text_deaths"
+                    app:layout_constraintEnd_toEndOf="@+id/title_deaths"
+                    app:layout_constraintStart_toStartOf="@+id/title_deaths"
                     app:layout_constraintTop_toBottomOf="@+id/text_deaths" />
 
 
                 <TextView
                     android:id="@+id/title_recovered"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="@string/total_cases"
+                    android:gravity="end"
+                    android:text="@string/recovered"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="#16335C"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/title_deaths"
                     app:layout_constraintTop_toBottomOf="@+id/title_coronavirus_global" />
@@ -131,7 +134,7 @@
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="@color/green"
                     android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/title_recovered"
                     app:layout_constraintTop_toBottomOf="@+id/title_recovered" />
 
                 <TextView
@@ -142,9 +145,8 @@
                     android:text="New: + 53,011"
                     android:textAppearance="?attr/textAppearanceCaption"
                     android:textColor="@color/green"
-                    app:layout_constraintStart_toStartOf="@+id/text_recovered"
+                    app:layout_constraintEnd_toEndOf="@+id/title_recovered"
                     app:layout_constraintTop_toBottomOf="@+id/text_recovered" />
-
 
                 <TextView
                     android:id="@+id/text_last_update"

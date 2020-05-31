@@ -8,29 +8,29 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-      >
+        android:layout_height="wrap_content">
 
         <TextView
-            android:layout_marginTop="@dimen/item_margin"
             android:id="@+id/text_state_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/sf_pro_display_medium"
-            android:text="Rajasthan"
+            android:text="@string/state_ut"
             android:textAppearance="?attr/textAppearanceCaption"
             app:layout_constraintEnd_toStartOf="@+id/text_confirmed"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/text_confirmed"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_medium"
             android:gravity="center"
-            android:text="65,000"
+            android:text="@string/confirmed"
             android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="@color/blue"
             app:layout_constraintBaseline_toBaselineOf="@+id/text_state_name"
             app:layout_constraintEnd_toStartOf="@+id/text_active"
             app:layout_constraintHorizontal_bias="0.5"
@@ -40,9 +40,11 @@
             android:id="@+id/text_active"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_medium"
             android:gravity="center"
-            android:text="65,000"
+            android:text="@string/active"
             android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="@color/dark_blue"
             app:layout_constraintBaseline_toBaselineOf="@+id/text_state_name"
             app:layout_constraintEnd_toStartOf="@+id/text_recovered"
             app:layout_constraintHorizontal_bias="0.5"
@@ -52,9 +54,11 @@
             android:id="@+id/text_recovered"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_medium"
             android:gravity="center"
-            android:text="65,000"
+            android:text="@string/recovered"
             android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="@color/green"
             app:layout_constraintBaseline_toBaselineOf="@+id/text_state_name"
             app:layout_constraintEnd_toStartOf="@+id/text_deaths"
             app:layout_constraintHorizontal_bias="0.5"
@@ -64,20 +68,16 @@
             android:id="@+id/text_deaths"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/sf_pro_display_medium"
             android:gravity="center"
-            android:text="65,000"
+            android:text="@string/deaths"
             android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="@color/red"
             app:layout_constraintBaseline_toBaselineOf="@+id/text_state_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/text_recovered" />
 
-        <include
-            android:id="@id/divider"
-            app:layout_constraintTop_toTopOf="parent"
-            layout="@layout/item_divider"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

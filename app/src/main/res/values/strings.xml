@@ -20,5 +20,12 @@
     <string name="coronavirus_global">Coronavirus Global</string>
     <string name="total_cases">Total Cases</string>
     <string name="latest_updates">Latest Updates</string>
+    <string name="all_state_ut_stats">All State/UT Stats</string>
+    <string name="today_statistics">Today\'s Statistics</string>
     <string name="statistics">Statistics</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="active">Active</string>
+    <string name="recovered">Recovered</string>
+    <string name="deaths">Deaths</string>
+    <string name="state_ut">State/UT</string>
 </resources>

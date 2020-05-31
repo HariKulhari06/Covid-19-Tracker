@@ -16,8 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorSurface"
-            app:navigationIcon="@drawable/ic_menu">
+            android:background="?attr/colorSurface">
 
             <include
                 android:id="@+id/logo_layout"

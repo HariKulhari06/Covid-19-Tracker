@@ -2,7 +2,8 @@ package com.hari.covid_19app
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavDestination
@@ -43,6 +44,23 @@ class MainActivity : AppCompatActivity() {
             onDestinationChange(destination)
         }
 
+        binding.navView.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_dark_mode -> {
+                    if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
+                    } else {
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    }
+                    true
+                }
+                else -> {
+                    super.onOptionsItemSelected(item)
+                }
+            }
+        }
+
     }
 
     private fun setUpToolbar() {
@@ -65,9 +83,9 @@ class MainActivity : AppCompatActivity() {
         binding.appBarMain.logo_layout.isVisible = config.isShowLogoImage
 
         binding.appBarMain.toolbar.navigationIcon = if (config.isTopLevel) {
-            AppCompatResources.getDrawable(this, R.drawable.ic_menu)
+            ContextCompat.getDrawable(this, R.drawable.ic_menu)
         } else {
-            AppCompatResources.getDrawable(this, R.drawable.ic_baseline_arrow_back_ios_24)
+            ContextCompat.getDrawable(this, R.drawable.ic_baseline_arrow_back_ios_24)
         }.apply {
             this?.setTint(R.attr.colorOnSurface)
         }

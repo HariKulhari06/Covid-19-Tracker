@@ -2,7 +2,7 @@
 <resources>
 
     <color name="color_primary">#FFFFFF</color>
-    <color name="color_secondary">#FFFFFF</color>
+    <color name="color_secondary">#DD208A</color>
 
     <color name="color_surface">#FAFAFA</color>
     <color name="color_on_surface">#707070</color>
@@ -14,6 +14,7 @@
     <color name="red">#FF5A5A</color>
     <color name="green">#42BE00</color>
     <color name="blue">#5A93FF</color>
+    <color name="dark_blue">#16335C</color>
 
 
 </resources>

@@ -30,7 +30,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         items.add(ItemGlobalStatusCard())
         items.add(ItemIndiaStatusCard())
 
-        val newsSection = Section(ItemHeader())
+        val newsSection = Section(ItemHeader(R.string.latest_updates))
         for (i in 1..50) {
             newsSection.add(ItemNews())
         }
