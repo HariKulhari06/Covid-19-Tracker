@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.CovidApp.Switch" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="android:thumb">@drawable/thumb_selector</item>
+        <item name="track">@drawable/track_selector</item>
+        <item name="switchMinWidth">45dp</item>
+    </style>
+
+    <style name="Widget.CovidApp.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardElevation">1dp</item>
+    </style>
+
+
+</resources>

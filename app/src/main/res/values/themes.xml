@@ -1,0 +1,65 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CovidApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Text appearances -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.CovidApp.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.CovidApp.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.CovidApp.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.CovidApp.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.CovidApp.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.CovidApp.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.CovidApp.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.CovidApp.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.CovidApp.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.CovidApp.Body2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.CovidApp.Caption</item>
+        <item name="textAppearanceButton">@style/TextAppearance.CovidApp.Button</item>
+
+        <!-- Shape appearances -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.CovidApp.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">
+            @style/ShapeAppearance.CovidApp.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.CovidApp.LargeComponent
+        </item>
+
+        <!-- Widget style -->
+        <item name="switchStyle">@style/Widget.CovidApp.Switch</item>
+        <item name="cardViewStyle">@style/Widget.CovidApp.CardView</item>
+    </style>
+
+    <style name="Theme.CovidApp" parent="Base.Theme.CovidApp">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/color_secondary</item>
+        <item name="colorSecondaryVariant">@color/color_secondary</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Surface color. -->
+        <item name="android:colorBackground">@color/color_surface</item>
+        <item name="colorSurface">@color/color_surface</item>
+        <item name="colorOnSurface">@color/color_on_surface</item>
+
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.CovidApp.DayNight" parent="Theme.CovidApp" />
+
+
+    <style name="Theme.CovidApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.CovidApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.CovidApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>

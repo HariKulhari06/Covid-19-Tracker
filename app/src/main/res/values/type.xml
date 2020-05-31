@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- see https://github.com/material-components/material-components-android/blob/2997b6995f32bbd7f7a4f24f4030278a50c15e6f/docs/theming/Typography.md -->
+
+    <!-- 96sp -->
+    <style name="TextAppearance.CovidApp.Headline1" parent="TextAppearance.MaterialComponents.Headline1">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 60sp -->
+    <style name="TextAppearance.CovidApp.Headline2" parent="TextAppearance.MaterialComponents.Headline2">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 48sp -->
+    <style name="TextAppearance.CovidApp.Headline3" parent="TextAppearance.MaterialComponents.Headline3">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 34sp -->
+    <style name="TextAppearance.CovidApp.Headline4" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 24sp -->
+    <style name="TextAppearance.CovidApp.Headline5" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 20sp -->
+    <style name="TextAppearance.CovidApp.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 16sp -->
+    <style name="TextAppearance.CovidApp.Subtitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 14sp -->
+    <style name="TextAppearance.CovidApp.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 16sp -->
+    <style name="TextAppearance.CovidApp.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 14sp -->
+    <style name="TextAppearance.CovidApp.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 12sp -->
+    <style name="TextAppearance.CovidApp.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+
+    <!-- 14sp -->
+    <style name="TextAppearance.CovidApp.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="fontFamily">@font/sf_pro_display_light</item>
+        <item name="android:textColor">?colorOnBackground</item>
+    </style>
+</resources>

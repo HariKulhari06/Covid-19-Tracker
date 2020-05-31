@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_margin="1dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/item_margin">
+
+                <TextView
+                    android:id="@+id/title_coronavirus_global"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/coronavirus_global"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/title_total_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/total_cases"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="#16335C"
+                    app:layout_constraintEnd_toStartOf="@+id/title_deaths"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_coronavirus_global" />
+
+                <TextView
+                    android:id="@+id/text_total_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sf_pro_display_bold"
+                    android:text="1,254,464"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/text_total_cases"
+                    app:layout_constraintTop_toBottomOf="@+id/title_total_cases" />
+
+                <TextView
+                    android:id="@+id/text_total_new_cases"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="New: + 53,011"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:textColor="@color/blue"
+                    app:layout_constraintStart_toStartOf="@+id/text_total_cases"
+                    app:layout_constraintTop_toBottomOf="@+id/text_total_cases" />
+
+
+                <TextView
+                    android:id="@+id/title_deaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/total_cases"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="#16335C"
+                    app:layout_constraintEnd_toStartOf="@+id/title_recovered"
+                    app:layout_constraintStart_toEndOf="@+id/title_total_cases"
+                    app:layout_constraintTop_toBottomOf="@+id/title_coronavirus_global" />
+
+                <TextView
+                    android:id="@+id/text_deaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sf_pro_display_bold"
+                    android:text="1,254,464"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="@color/red"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@id/title_deaths"
+                    app:layout_constraintTop_toBottomOf="@+id/title_deaths" />
+
+                <TextView
+                    android:id="@+id/text_new_deaths"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="New: + 53,011"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:textColor="@color/red"
+                    app:layout_constraintStart_toStartOf="@+id/text_deaths"
+                    app:layout_constraintTop_toBottomOf="@+id/text_deaths" />
+
+
+                <TextView
+                    android:id="@+id/title_recovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/total_cases"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="#16335C"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/title_deaths"
+                    app:layout_constraintTop_toBottomOf="@+id/title_coronavirus_global" />
+
+                <TextView
+                    android:id="@+id/text_recovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/sf_pro_display_bold"
+                    android:text="1,254,464"
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textColor="@color/green"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title_recovered" />
+
+                <TextView
+                    android:id="@+id/text_new_recovered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="New: + 53,011"
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    android:textColor="@color/green"
+                    app:layout_constraintStart_toStartOf="@+id/text_recovered"
+                    app:layout_constraintTop_toBottomOf="@+id/text_recovered" />
+
+
+                <TextView
+                    android:id="@+id/text_last_update"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Last updated: Apr 05, 03:54 PM "
+                    android:textAppearance="?attr/textAppearanceCaption"
+                    app:layout_constraintStart_toStartOf="@+id/text_total_cases"
+                    app:layout_constraintTop_toBottomOf="@+id/text_total_new_cases" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

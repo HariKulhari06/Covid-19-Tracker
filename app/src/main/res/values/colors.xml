@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_primary">#FFFFFF</color>
+    <color name="color_secondary">#FFFFFF</color>
+
+    <color name="color_surface">#FAFAFA</color>
+    <color name="color_on_surface">#707070</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="pink">#DD208A</color>
+    <color name="red">#FF5A5A</color>
+    <color name="green">#42BE00</color>
+    <color name="blue">#5A93FF</color>
+
+
+</resources>

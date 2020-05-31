@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShapeAppearance.CovidApp.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <!--Your custom shape here-->
+        <item name="cornerFamily">rounded</item>
+
+    </style>
+
+    <!--Shape Appearance for medium components like cards, alert dialogs-->
+    <style name="ShapeAppearance.CovidApp.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <!--Your custom shape here-->
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15dp</item>
+    </style>
+
+    <!--Shape Appearance for large components like side and bottom navigation drawers-->
+    <style name="ShapeAppearance.CovidApp.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <!--Your custom shape here-->
+    </style>
+    
+</resources>
