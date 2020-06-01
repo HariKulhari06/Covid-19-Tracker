@@ -1,4 +1,4 @@
-package com.hari.covid_19app.item
+package com.hari.covid_19app.ui.item
 
 import androidx.annotation.StringRes
 import com.hari.covid_19app.R

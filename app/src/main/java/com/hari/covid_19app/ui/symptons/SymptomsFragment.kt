@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.FragmentSymptomsBinding
-import com.hari.covid_19app.item.CardItemDecoration
-import com.hari.covid_19app.item.ItemSymptomsImage
+import com.hari.covid_19app.ui.item.CardItemDecoration
+import com.hari.covid_19app.ui.item.ItemSymptomsImage
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.GroupieViewHolder

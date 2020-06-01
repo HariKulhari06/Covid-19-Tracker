@@ -1,4 +1,4 @@
-package com.hari.covid_19app.item
+package com.hari.covid_19app.ui.item
 
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.ItemNewsUpdatesBinding

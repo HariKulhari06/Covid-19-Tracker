@@ -1,4 +1,4 @@
-package com.hari.covid_19app.item
+package com.hari.covid_19app.ui.item
 
 import android.graphics.Color
 import com.github.mikephil.charting.animation.Easing

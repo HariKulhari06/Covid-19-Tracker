@@ -7,10 +7,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.FragmentPreventionsBinding
-import com.hari.covid_19app.item.CardItemDecoration
-import com.hari.covid_19app.item.ItemBigImageLeftSide
-import com.hari.covid_19app.item.ItemBigImageRightSide
-import com.hari.covid_19app.item.ItemPreventionsImage
+import com.hari.covid_19app.ui.item.CardItemDecoration
+import com.hari.covid_19app.ui.item.ItemBigImageLeftSide
+import com.hari.covid_19app.ui.item.ItemBigImageRightSide
+import com.hari.covid_19app.ui.item.ItemPreventionsImage
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.GroupieViewHolder

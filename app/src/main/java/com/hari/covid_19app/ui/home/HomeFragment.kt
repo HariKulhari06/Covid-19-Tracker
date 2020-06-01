@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.transition.MaterialFadeThrough
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.FragmentHomeBinding
-import com.hari.covid_19app.item.*
+import com.hari.covid_19app.ui.item.*
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section

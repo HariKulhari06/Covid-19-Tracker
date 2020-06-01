@@ -31,8 +31,7 @@ enum class PageConfiguration(
     ),
     STATISTICS(
         R.id.statisticsFragment,
-        hasTitle = false,
-        isTopLevel = true
+        hasTitle = false
     ),
     OTHER(0);
 

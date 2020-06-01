@@ -1,4 +1,4 @@
-package com.hari.covid_19app.item
+package com.hari.covid_19app.ui.item
 
 import android.graphics.Canvas
 import android.graphics.Paint
