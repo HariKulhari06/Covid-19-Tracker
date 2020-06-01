@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import androidx.navigation.findNavController
+import androidx.navigation.NavOptions
+import androidx.navigation.Navigation
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -22,6 +24,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    private val navController: NavController by lazy {
+        Navigation.findNavController(this, R.id.nav_host_fragment)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setUpToolbar()
@@ -29,13 +35,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpNavigation() {
-        val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home
-            ), binding.drawerLayout
+            PageConfiguration.values().filter { it.isTopLevel }.map { it.id }.toSet(),
+            binding.drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
@@ -45,22 +49,35 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.navView.setNavigationItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_dark_mode -> {
-                    if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-
-                    } else {
-                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                    }
-                    true
-                }
-                else -> {
-                    super.onOptionsItemSelected(item)
-                }
-            }
+            handleNavigation(item.itemId)
         }
 
+    }
+
+    private fun handleNavigation(itemId: Int): Boolean {
+        binding.drawerLayout.closeDrawers()
+
+        if (itemId == R.id.nav_dark_mode) {
+            if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            }
+            return true
+        }
+
+        return try {
+            if (navController.currentDestination?.id == itemId) return false
+            val builder = NavOptions.Builder()
+                .setLaunchSingleTop(true)
+                .setPopUpTo(R.id.nav_home, false)
+            val options = builder.build()
+            navController.navigate(itemId, null, options)
+            true
+        } catch (e: IllegalArgumentException) {
+            false
+        }
     }
 
     private fun setUpToolbar() {
@@ -68,7 +85,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 

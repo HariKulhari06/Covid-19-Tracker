@@ -28,4 +28,5 @@
     <string name="recovered">Recovered</string>
     <string name="deaths">Deaths</string>
     <string name="state_ut">State/UT</string>
+    <string name="what_should_we_do">What Should We Do</string>
 </resources>

@@ -9,7 +9,7 @@
         android:id="@+id/nav_home"
         android:name="com.hari.covid_19app.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_nav_home_to_statisticsFragment"
             app:destination="@id/statisticsFragment" />
@@ -18,7 +18,25 @@
     <fragment
         android:id="@+id/statisticsFragment"
         android:name="com.hari.covid_19app.ui.statistics.StatisticsFragment"
-        android:label="@string/statistics" />
+        android:label="@string/statistics"
+        tools:layout="@layout/fragment_statistics" />
+
+    <fragment
+        android:id="@+id/nav_prevention"
+        android:name="com.hari.covid_19app.ui.preventions.PreventionsFragment"
+        android:label="@string/preventions"
+        tools:layout="@layout/fragment_preventions" />
+
+    <fragment
+        android:id="@+id/nav_symptoms"
+        android:name="com.hari.covid_19app.ui.symptons.SymptomsFragment"
+        android:label="@string/symptoms"
+        tools:layout="@layout/fragment_symptoms" />
+    <fragment
+        android:id="@+id/nav_questions"
+        android:name="com.hari.covid_19app.ui.questions.PopularQuestionFragment"
+        android:label="@string/popular_questions"
+        tools:layout="@layout/fragment_popular_questions" />
 
 
 </navigation>

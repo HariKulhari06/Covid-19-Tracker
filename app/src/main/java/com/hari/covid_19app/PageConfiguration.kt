@@ -14,9 +14,25 @@ enum class PageConfiguration(
         hasTitle = false,
         isTopLevel = true
     ),
+    PREVENTIONS(
+        R.id.nav_prevention,
+        hasTitle = false,
+        isTopLevel = true
+    ),
+    SYMPTOMS(
+        R.id.nav_symptoms,
+        hasTitle = false,
+        isTopLevel = true
+    ),
+    QUESTIONS(
+        R.id.nav_questions,
+        hasTitle = false,
+        isTopLevel = true
+    ),
     STATISTICS(
         R.id.statisticsFragment,
-        hasTitle = false
+        hasTitle = false,
+        isTopLevel = true
     ),
     OTHER(0);
 
