@@ -1,11 +1,13 @@
 package com.hari.covid_19app
 
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
@@ -14,8 +16,15 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.hari.covid_19app.databinding.ActivityMainBinding
+import com.hari.covid_19app.utils.ext.getThemeColor
 import kotlinx.android.synthetic.main.app_bar_main.view.*
+
 
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
@@ -32,6 +41,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setUpToolbar()
         setUpNavigation()
+
+        lifecycleScope.launchWhenResumed {
+            val database = Firebase.database.getReference("Preventions")
+
+            database.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+                    val message = p0.message
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    val value = p0.value
+                }
+
+            })
+        }
     }
 
     private fun setUpNavigation() {
@@ -52,6 +76,10 @@ class MainActivity : AppCompatActivity() {
             handleNavigation(item.itemId)
         }
 
+        binding.navView.getHeaderView(0).findViewById<ImageView>(R.id.image_close)
+            .setOnClickListener {
+                binding.drawerLayout.closeDrawers()
+            }
     }
 
     private fun handleNavigation(itemId: Int): Boolean {
@@ -103,10 +131,8 @@ class MainActivity : AppCompatActivity() {
         } else {
             ContextCompat.getDrawable(this, R.drawable.ic_baseline_arrow_back_ios_24)
         }.apply {
-            this?.setTint(R.attr.colorOnSurface)
+            this?.setTint(getThemeColor(R.attr.colorOnSurface))
         }
-
     }
-
 
 }

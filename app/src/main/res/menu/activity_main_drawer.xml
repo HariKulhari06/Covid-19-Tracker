@@ -10,6 +10,7 @@
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_health_status"
+            android:visible="false"
             android:title="@string/health_status" />
         <item
             android:id="@+id/nav_prevention"

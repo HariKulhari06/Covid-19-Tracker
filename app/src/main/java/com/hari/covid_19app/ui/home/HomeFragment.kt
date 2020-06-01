@@ -6,6 +6,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.transition.MaterialFadeThrough
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.FragmentHomeBinding
 import com.hari.covid_19app.item.*
@@ -16,6 +17,11 @@ import com.xwray.groupie.databinding.GroupieViewHolder
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var homeViewModel: HomeViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enterTransition = MaterialFadeThrough()
+    }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
