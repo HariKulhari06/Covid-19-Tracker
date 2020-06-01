@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 class CardItemDecoration(
     @ColorInt val backgroundColor: Int,
     private val paddingPixelSize: Int
-    ) : RecyclerView.ItemDecoration() {
+) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
         outRect: Rect,

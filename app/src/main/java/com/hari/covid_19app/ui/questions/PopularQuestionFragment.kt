@@ -9,7 +9,6 @@ import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.FragmentPopularQuestionsBinding
 import com.hari.covid_19app.item.CardItemDecoration
 import com.hari.covid_19app.item.ItemPopularQuestion
-import com.hari.covid_19app.item.ItemSymptomsImage
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.databinding.GroupieViewHolder
@@ -24,7 +23,7 @@ class PopularQuestionFragment : Fragment(R.layout.fragment_popular_questions) {
 
         val items = mutableListOf<Group>()
 
-        for (i in 1..30){
+        for (i in 1..30) {
             items.add(ItemPopularQuestion())
         }
 
