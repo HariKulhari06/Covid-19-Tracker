@@ -4,35 +4,50 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.transition.MaterialFadeThrough
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.FragmentHomeBinding
+import com.hari.covid_19app.di.Injectable
 import com.hari.covid_19app.ui.item.*
+import com.hari.covid_19app.utils.ext.assistedViewModels
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.databinding.GroupieViewHolder
+import kotlinx.coroutines.delay
+import javax.inject.Inject
+import javax.inject.Provider
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
-    private lateinit var homeViewModel: HomeViewModel
+class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
+
+    @Inject
+    lateinit var homeViewModelProvider: Provider<HomeViewModel>
+    private val homeViewModel: HomeViewModel by assistedViewModels {
+        homeViewModelProvider.get()
+    }
+
+    @Inject
+    lateinit var itemHealthStatusCardFactory: ItemHealthStatusCard.Factory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough()
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentHomeBinding.bind(view)
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
         val adapter = GroupAdapter<GroupieViewHolder<*>>()
 
+        lifecycleScope.launchWhenResumed {
+            delay(5000)
+            homeViewModel.prinLog()
+        }
+
         val items = mutableListOf<Group>()
-        items.add(ItemHealthStatusCard())
+        items.add(itemHealthStatusCardFactory.create())
         items.add(ItemGlobalStatusCard())
         items.add(ItemIndiaStatusCard())
 

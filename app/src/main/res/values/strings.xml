@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Covid-19 App</string>
+    <string name="app_name">Covid-19 Tracker</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -29,4 +29,15 @@
     <string name="deaths">Deaths</string>
     <string name="state_ut">State/UT</string>
     <string name="what_should_we_do">What Should We Do</string>
+
+    <string name="error_network" translatable="false">A network error has occurred.Please try again.</string>
+    <string name="error_server" translatable="false">A server error has occurred.Please try again.</string>
+    <string name="error_unknown" translatable="false">An unknown error has occurred.Please try again.</string>
+    <string name="error_auth" translatable="false">You do not have permissions to access the service.</string>
+
+
+    <string name="pref_theme_value_light" translatable="false">light</string>
+    <string name="pref_theme_value_dark" translatable="false">dark</string>
+
+
 </resources>

@@ -21,6 +21,15 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        debug {
+            storeFile file('src\\debug\\debug.keystore')
+            keyAlias 'androiddebugkey'
+            storePassword 'android'
+            keyPassword 'android'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -61,11 +70,25 @@ dependencies {
 
     kapt deps.room.compiler
     implementation deps.room.runtime
+    implementation deps.room.ktx
 
     implementation deps.retrofit.runtime
     implementation deps.retrofit.gson
     implementation deps.okhttp_logging_interceptor
 
+    kapt deps.dagger.compiler
+    kapt deps.dagger.android_support_compiler
+    kapt deps.dagger.assistedInjectProcessor
+    implementation deps.dagger.runtime
+    implementation deps.dagger.android
+    implementation deps.dagger.android_support
+    implementation deps.dagger.assistedInjectAnnotations
+    implementation deps.dagger.android_support
+
+
+
+
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'androidx.preference:preference:1.1.0'
 
 }

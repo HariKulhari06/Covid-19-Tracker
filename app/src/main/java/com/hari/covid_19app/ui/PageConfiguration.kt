@@ -1,6 +1,7 @@
-package com.hari.covid_19app
+package com.hari.covid_19app.ui
 
 import androidx.annotation.IdRes
+import com.hari.covid_19app.R
 
 enum class PageConfiguration(
     val id: Int,

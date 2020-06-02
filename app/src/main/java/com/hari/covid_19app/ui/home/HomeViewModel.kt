@@ -1,5 +1,15 @@
 package com.hari.covid_19app.ui.home
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.hari.covid_19app.repository.CovidRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel : ViewModel()
+class HomeViewModel @Inject constructor(private val covidRepository: CovidRepository) :
+    ViewModel() {
+    fun prinLog() {
+        viewModelScope.launch(Dispatchers.IO) { covidRepository.testLog() }
+    }
+}

@@ -1,13 +1,12 @@
-package com.hari.covid_19app
+package com.hari.covid_19app.ui
 
 import android.os.Bundle
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
@@ -16,46 +15,68 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
+import com.google.android.material.snackbar.Snackbar
+import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.ActivityMainBinding
+import com.hari.covid_19app.model.NightMode
+import com.hari.covid_19app.utils.ext.assistedActivityViewModels
 import com.hari.covid_19app.utils.ext.getThemeColor
+import com.hari.covid_19app.utils.ext.stringRes
+import com.hari.covid_19app.utils.pref.ThemePrefs
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.app_bar_main.view.*
+import javax.inject.Inject
+import javax.inject.Provider
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DaggerAppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
-        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        DataBindingUtil.setContentView<ActivityMainBinding>(
+            this,
+            R.layout.activity_main
+        )
+    }
+
+    @Inject
+    lateinit var systemViewModelProvider: Provider<SystemViewModel>
+    private val systemViewModel: SystemViewModel by assistedActivityViewModels {
+        systemViewModelProvider.get()
     }
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     private val navController: NavController by lazy {
-        Navigation.findNavController(this, R.id.nav_host_fragment)
+        Navigation.findNavController(
+            this,
+            R.id.nav_host_fragment
+        )
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setUpToolbar()
         setUpNavigation()
+        setUpAppTheme()
 
-        lifecycleScope.launchWhenResumed {
-            val database = Firebase.database.getReference("Preventions")
+        systemViewModel.errorLiveData.observe(this, Observer { appError ->
+            Snackbar
+                .make(
+                    findViewById(R.id.nav_host_fragment),
+                    appError.stringRes(),
+                    Snackbar.LENGTH_LONG
+                )
+                .show()
+        })
+    }
 
-            database.addValueEventListener(object : ValueEventListener {
-                override fun onCancelled(p0: DatabaseError) {
-                    val message = p0.message
-                }
+    private fun setUpAppTheme() {
+        systemViewModel.setNightMode(ThemePrefs(this).getNightMode().toNightMode())
 
-                override fun onDataChange(p0: DataSnapshot) {
-                    val value = p0.value
-                }
+        systemViewModel.uiModel.observe(this, Observer { uiModel ->
+            AppCompatDelegate.setDefaultNightMode(uiModel.nightMode.platformValue)
+            ThemePrefs(this).setNightMode(uiModel.nightMode.toNightModeValue)
+        })
 
-            })
-        }
     }
 
     private fun setUpNavigation() {
@@ -84,14 +105,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleNavigation(itemId: Int): Boolean {
         binding.drawerLayout.closeDrawers()
-
         if (itemId == R.id.nav_dark_mode) {
-            if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_NO) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-            }
+            systemViewModel.toggleNightMode()
             return true
         }
 
@@ -118,7 +133,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun onDestinationChange(destination: NavDestination) {
 
-        val config = PageConfiguration.getConfiguration(destination.id)
+        val config =
+            PageConfiguration.getConfiguration(
+                destination.id
+            )
 
         if (!config.hasTitle) {
             supportActionBar?.title = ""
@@ -127,12 +145,47 @@ class MainActivity : AppCompatActivity() {
         binding.appBarMain.logo_layout.isVisible = config.isShowLogoImage
 
         binding.appBarMain.toolbar.navigationIcon = if (config.isTopLevel) {
-            ContextCompat.getDrawable(this, R.drawable.ic_menu)
+            ContextCompat.getDrawable(
+                this,
+                R.drawable.ic_menu
+            )
         } else {
-            ContextCompat.getDrawable(this, R.drawable.ic_baseline_arrow_back_ios_24)
+            ContextCompat.getDrawable(
+                this,
+                R.drawable.ic_baseline_arrow_back_ios_24
+            )
         }.apply {
             this?.setTint(getThemeColor(R.attr.colorOnSurface))
         }
     }
 
+
+    private val NightMode.toNightModeValue: String
+        get() = when (this) {
+            NightMode.YES -> getString(R.string.pref_theme_value_dark)
+            NightMode.NO -> getString(R.string.pref_theme_value_light)
+        }
+
+    private val NightMode.platformValue: Int
+        get() = when (this) {
+            NightMode.YES -> AppCompatDelegate.MODE_NIGHT_YES
+            NightMode.NO -> AppCompatDelegate.MODE_NIGHT_NO
+        }
+
+    private fun Int.toNightMode(): NightMode {
+        return when (this) {
+            AppCompatDelegate.MODE_NIGHT_YES -> {
+                NightMode.YES
+            }
+            else -> {
+                NightMode.NO
+            }
+        }
+
+    }
+
 }
+
+
+
+
