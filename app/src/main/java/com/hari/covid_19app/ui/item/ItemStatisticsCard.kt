@@ -9,25 +9,42 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.ItemStatisticsCardBinding
+import com.hari.covid_19app.db.entity.State
+import com.squareup.inject.assisted.Assisted
+import com.squareup.inject.assisted.AssistedInject
 import com.xwray.groupie.databinding.BindableItem
 
-class ItemStatisticsCard : BindableItem<ItemStatisticsCardBinding>() {
+class ItemStatisticsCard @AssistedInject constructor(
+    @Assisted private val state: State
+) : BindableItem<ItemStatisticsCardBinding>() {
     override fun getLayout() = R.layout.item_statistics_card
 
     override fun bind(viewBinding: ItemStatisticsCardBinding, position: Int) {
+        viewBinding.state = state
         with(viewBinding) {
             initChart(chart)
             setChatData(chart)
         }
-
     }
 
     private fun setChatData(chart: PieChart) {
         val entries = mutableListOf<PieEntry>()
 
-        entries.add(0, PieEntry(60.0f, "Active"))
-        entries.add(1, PieEntry(35.0f, "Recovered"))
-        entries.add(2, PieEntry(5.0f, "Death"))
+        entries.add(
+            0,
+            PieEntry(state.active?.toFloat() ?: 0.0f, chart.context.getString(R.string.active))
+        )
+        entries.add(
+            1,
+            PieEntry(
+                state.recovered?.toFloat() ?: 0.0f,
+                chart.context.getString(R.string.recovered)
+            )
+        )
+        entries.add(
+            2,
+            PieEntry(state.deaths?.toFloat() ?: 0.0f, chart.context.getString(R.string.deaths))
+        )
 
         val colors = mutableListOf<Int>()
         colors.add(chart.context.resources.getColor(R.color.blue))
@@ -39,6 +56,9 @@ class ItemStatisticsCard : BindableItem<ItemStatisticsCardBinding>() {
         dataSet.colors = colors
 
         val pieData = PieData(dataSet)
+        pieData.setValueTextSize(12f)
+        pieData.setValueTextColor(Color.BLACK)
+        pieData.setValueTypeface(chart.context.resources.getFont(R.font.sf_pro_display_light))
 
         chart.data = pieData
         chart.invalidate()
@@ -46,7 +66,7 @@ class ItemStatisticsCard : BindableItem<ItemStatisticsCardBinding>() {
 
     private fun initChart(chart: PieChart) {
 
-        chart.setUsePercentValues(true)
+        chart.setUsePercentValues(false)
 
         chart.animateY(1400, Easing.EaseInOutQuad)
 
@@ -67,9 +87,17 @@ class ItemStatisticsCard : BindableItem<ItemStatisticsCardBinding>() {
         l.verticalAlignment = Legend.LegendVerticalAlignment.CENTER
         l.horizontalAlignment = Legend.LegendHorizontalAlignment.RIGHT
         l.orientation = Legend.LegendOrientation.VERTICAL
+        l.textSize = 12f
+        l.textColor = Color.CYAN
+        l.typeface = chart.resources.getFont(R.font.sf_pro_display_medium)
         l.setDrawInside(false)
         l.xEntrySpace = 7f
         l.yEntrySpace = 20f
 
+    }
+
+    @AssistedInject.Factory
+    interface Factory {
+        fun create(state: State): ItemStatisticsCard
     }
 }

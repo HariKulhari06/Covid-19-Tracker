@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="state"
+            type="com.hari.covid_19app.db.entity.State" />
 
     </data>
 
@@ -61,28 +66,29 @@
 
                 <TextView
                     android:id="@+id/text_total_cases"
+                    setCases="@{state.confirmed}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/sf_pro_display_bold"
-                    android:text="1,254,464"
-
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="@color/blue"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="@+id/title_total_cases"
-                    app:layout_constraintTop_toBottomOf="@+id/title_total_cases" />
+                    app:layout_constraintTop_toBottomOf="@+id/title_total_cases"
+                    tools:text="1,254,464" />
 
                 <TextView
                     android:id="@+id/text_total_new_cases"
+                    setDelta="@{state.deltaConfirmed}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="New: + 53,011"
                     android:textAppearance="?attr/textAppearanceCaption"
                     android:textColor="@color/blue"
                     app:layout_constraintStart_toStartOf="@+id/title_total_cases"
-                    app:layout_constraintTop_toBottomOf="@+id/text_total_cases" />
+                    app:layout_constraintTop_toBottomOf="@+id/text_total_cases"
+                    tools:text="New: + 123" />
 
 
                 <TextView
@@ -99,29 +105,31 @@
 
                 <TextView
                     android:id="@+id/text_deaths"
+                    setCases="@{state.deaths}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/sf_pro_display_bold"
-                    android:text="1,254,464"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="@color/red"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="@+id/title_deaths"
                     app:layout_constraintStart_toStartOf="@+id/title_deaths"
-                    app:layout_constraintTop_toBottomOf="@+id/title_deaths" />
+                    app:layout_constraintTop_toBottomOf="@+id/title_deaths"
+                    tools:text="1,254,464" />
 
                 <TextView
                     android:id="@+id/text_new_deaths"
+                    setDelta="@{state.deltaDeaths}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="New: + 53,011"
                     android:textAppearance="?attr/textAppearanceCaption"
                     android:textColor="@color/red"
                     app:layout_constraintEnd_toEndOf="@+id/title_deaths"
                     app:layout_constraintStart_toStartOf="@+id/title_deaths"
-                    app:layout_constraintTop_toBottomOf="@+id/text_deaths" />
+                    app:layout_constraintTop_toBottomOf="@+id/text_deaths"
+                    tools:text="New: + 53,011" />
 
 
                 <TextView
@@ -138,34 +146,36 @@
 
                 <TextView
                     android:id="@+id/text_recovered"
+                    setCases="@{state.recovered}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/sf_pro_display_bold"
-                    android:text="1,254,464"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="@color/green"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="@+id/title_recovered"
-                    app:layout_constraintTop_toBottomOf="@+id/title_recovered" />
+                    app:layout_constraintTop_toBottomOf="@+id/title_recovered"
+                    tools:text="1,254,464" />
 
                 <TextView
                     android:id="@+id/text_new_recovered"
+                    setDelta="@{state.deltaRecovered}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="New: + 53,011"
                     android:textAppearance="?attr/textAppearanceCaption"
                     android:textColor="@color/green"
                     app:layout_constraintEnd_toEndOf="@+id/title_recovered"
-                    app:layout_constraintTop_toBottomOf="@+id/text_recovered" />
+                    app:layout_constraintTop_toBottomOf="@+id/text_recovered"
+                    tools:text="New: + 53,011" />
 
                 <TextView
                     android:id="@+id/text_last_update"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Last updated: Apr 05, 03:54 PM "
+                    lastUpdatedTime="@{state.lastUpdatedTime}"
                     android:textAppearance="?attr/textAppearanceCaption"
                     app:layout_constraintStart_toStartOf="@+id/text_total_cases"
                     app:layout_constraintTop_toBottomOf="@+id/text_total_new_cases" />

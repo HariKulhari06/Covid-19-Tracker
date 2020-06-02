@@ -22,14 +22,14 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_baseline_expand_more_24"
-            android:drawableRight="@drawable/ic_baseline_expand_more_24"
             android:gravity="center"
-            android:text="05, April 2020"
+            app:drawableEndCompat="@drawable/ic_baseline_expand_more_24"
             app:layout_constraintBaseline_toBaselineOf="@+id/title"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="05, April 2020" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

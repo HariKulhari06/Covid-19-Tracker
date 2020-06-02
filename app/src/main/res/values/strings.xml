@@ -38,6 +38,8 @@
 
     <string name="pref_theme_value_light" translatable="false">light</string>
     <string name="pref_theme_value_dark" translatable="false">dark</string>
+    <string name="last_updated">Last updated:</string>
+    <string name="new_">New:</string>
 
 
 </resources>

@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="state"
+            type="com.hari.covid_19app.db.entity.State" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -11,72 +15,120 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_marginTop="@dimen/item_margin"
             android:id="@+id/text_state_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/item_margin"
             android:fontFamily="@font/sf_pro_display_medium"
-            android:text="Rajasthan"
+            android:text="@{state.state}"
             android:textAppearance="?attr/textAppearanceCaption"
             app:layout_constraintEnd_toStartOf="@+id/text_confirmed"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider" />
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            tools:text="Rajasthan" />
 
         <TextView
             android:id="@+id/text_confirmed"
+            setCases="@{state.confirmed}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="65,000"
             android:textAppearance="?attr/textAppearanceCaption"
             app:layout_constraintBaseline_toBaselineOf="@+id/text_state_name"
             app:layout_constraintEnd_toStartOf="@+id/text_active"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/text_state_name" />
+            app:layout_constraintStart_toEndOf="@+id/text_state_name"
+            tools:text="65,000" />
 
         <TextView
-            android:id="@+id/text_active"
+            android:id="@+id/text_confirmed_delta"
+            setDeltaOrGone="@{state.deltaConfirmed}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="65,000"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="@color/blue"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/text_confirmed"
+            app:layout_constraintStart_toStartOf="@+id/text_confirmed"
+            app:layout_constraintTop_toBottomOf="@+id/text_confirmed"
+            tools:text="+65" />
+
+        <TextView
+            android:id="@+id/text_active"
+            setCases="@{state.active}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:textAppearance="?attr/textAppearanceCaption"
             app:layout_constraintBaseline_toBaselineOf="@+id/text_state_name"
             app:layout_constraintEnd_toStartOf="@+id/text_recovered"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/text_confirmed" />
+            app:layout_constraintStart_toEndOf="@+id/text_confirmed"
+            tools:text="65,000" />
+
 
         <TextView
             android:id="@+id/text_recovered"
+            setCases="@{state.recovered}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="65,000"
             android:textAppearance="?attr/textAppearanceCaption"
             app:layout_constraintBaseline_toBaselineOf="@+id/text_state_name"
             app:layout_constraintEnd_toStartOf="@+id/text_deaths"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/text_active" />
+            app:layout_constraintStart_toEndOf="@+id/text_active"
+            tools:text="65,000" />
 
         <TextView
-            android:id="@+id/text_deaths"
+            android:id="@+id/text_recovered_delta"
+            setDeltaOrGone="@{state.deltaRecovered}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="65,000"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="@color/green"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/text_recovered"
+            app:layout_constraintStart_toStartOf="@+id/text_recovered"
+            app:layout_constraintTop_toBottomOf="@+id/text_recovered"
+            tools:text="+65" />
+
+        <TextView
+            android:id="@+id/text_deaths"
+            setCases="@{state.deaths}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
             android:textAppearance="?attr/textAppearanceCaption"
             app:layout_constraintBaseline_toBaselineOf="@+id/text_state_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/text_recovered" />
+            app:layout_constraintStart_toEndOf="@+id/text_recovered"
+            tools:text="65,000" />
+
+        <TextView
+            android:id="@+id/text_deaths_delta"
+            setDeltaOrGone="@{state.deltaDeaths}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAppearance="?attr/textAppearanceCaption"
+            android:textColor="@color/red"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/text_deaths"
+            app:layout_constraintStart_toStartOf="@+id/text_deaths"
+            app:layout_constraintTop_toBottomOf="@+id/text_deaths"
+            tools:text="+65" />
 
         <include
             android:id="@id/divider"
-            app:layout_constraintTop_toTopOf="parent"
             layout="@layout/item_divider"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

@@ -10,4 +10,5 @@ class ItemStatusHeader : BindableItem<ItemStatusHeaderBinding>() {
     override fun bind(viewBinding: ItemStatusHeaderBinding, position: Int) {
 
     }
+
 }

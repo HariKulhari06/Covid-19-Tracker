@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.transition.MaterialFadeThrough
 import com.hari.covid_19app.R
@@ -16,7 +16,6 @@ import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
 import com.xwray.groupie.databinding.GroupieViewHolder
-import kotlinx.coroutines.delay
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -31,6 +30,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
     @Inject
     lateinit var itemHealthStatusCardFactory: ItemHealthStatusCard.Factory
 
+    @Inject
+    lateinit var itemIndiaStatusCardFactory: ItemIndiaStatusCard.Factory
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough()
@@ -40,25 +42,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentHomeBinding.bind(view)
         val adapter = GroupAdapter<GroupieViewHolder<*>>()
-
-        lifecycleScope.launchWhenResumed {
-            delay(5000)
-            homeViewModel.prinLog()
-        }
-
-        val items = mutableListOf<Group>()
-        items.add(itemHealthStatusCardFactory.create())
-        items.add(ItemGlobalStatusCard())
-        items.add(ItemIndiaStatusCard())
-
-        val newsSection = Section(ItemHeader(R.string.latest_updates))
-        for (i in 1..50) {
-            newsSection.add(ItemNews())
-        }
-
-        items.add(newsSection)
-
-        adapter.update(items)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.addItemDecoration(
             CardItemDecoration(
@@ -73,6 +56,23 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
         )
         binding.recyclerView.adapter = adapter
 
+        homeViewModel.totalCaseOfIndia.observe(viewLifecycleOwner, Observer { state ->
+            val items = mutableListOf<Group>()
+            items.add(itemHealthStatusCardFactory.create())
+            items.add(ItemGlobalStatusCard())
+            state?.let {
+                items.add(itemIndiaStatusCardFactory.create(state))
+            }
+
+            val newsSection = Section(ItemHeader(R.string.latest_updates))
+            for (i in 1..50) {
+                newsSection.add(ItemNews())
+            }
+
+            items.add(newsSection)
+
+            adapter.update(items)
+        })
     }
 
 

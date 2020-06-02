@@ -5,7 +5,7 @@ import androidx.room.Room
 import com.hari.covid_19app.db.CacheDatabase
 import com.hari.covid_19app.db.CovidDatabase
 import com.hari.covid_19app.db.RoomDatabase
-import com.hari.covid_19app.db.dao.UserDao
+import com.hari.covid_19app.db.dao.StateDao
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -22,7 +22,7 @@ class DatabaseModule {
     }
 
     @Provides
-    fun provideUserDao(database: CacheDatabase): UserDao = database.userDao()
+    fun provideStateDao(database: CacheDatabase): StateDao = database.stateDao()
 
     @Provides
     fun provideCovidDatabaes(impl: RoomDatabase): CovidDatabase = impl
