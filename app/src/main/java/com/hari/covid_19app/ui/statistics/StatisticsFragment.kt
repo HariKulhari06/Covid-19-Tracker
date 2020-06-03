@@ -35,12 +35,14 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics), Injectable {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enterTransition = MaterialFadeThrough()
+        enterTransition = MaterialFadeThrough.create(requireContext())
+        enterTransition = MaterialFadeThrough.create(requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentStatisticsBinding.bind(view)
+        postponeEnterTransition()
         val adapter = GroupAdapter<GroupieViewHolder<*>>()
         binding.recyclerViewStatistics.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewStatistics.addItemDecoration(
@@ -76,6 +78,8 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics), Injectable {
             items.add(stateAndUt)
 
             adapter.update(items)
+
+            startPostponedEnterTransition()
         })
 
 

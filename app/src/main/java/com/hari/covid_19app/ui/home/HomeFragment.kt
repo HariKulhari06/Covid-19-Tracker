@@ -38,7 +38,7 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enterTransition = MaterialFadeThrough()
+        enterTransition = MaterialFadeThrough.create(requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

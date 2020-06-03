@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="question"
+            type="com.hari.covid_19app.model.Question" />
 
     </data>
 
@@ -12,9 +17,9 @@
 
         <androidx.constraintlayout.motion.widget.MotionLayout
             android:id="@+id/constraintLayout"
-            android:background="?selectableItemBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
             android:padding="@dimen/item_margin"
             app:layoutDescription="@xml/item_popular_question_card_xml_constraintlayout_scene">
 
@@ -23,35 +28,31 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/item_margin"
-                android:layout_marginRight="@dimen/item_margin"
-                android:text="What is corona virus?"
+                android:text="@{question.question}"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 app:layout_constraintEnd_toStartOf="@+id/image_arrow"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="What is corona virus?" />
 
             <ImageView
-                android:padding="5dp"
                 android:id="@+id/image_arrow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:src="@drawable/ic_arrow_right"
                 app:layout_constraintBottom_toBottomOf="@+id/text_question"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/text_question" />
+                app:layout_constraintTop_toTopOf="@+id/text_question"
+                tools:ignore="ContentDescription" />
 
 
             <TextView
                 android:id="@+id/text_answer"
                 android:layout_width="0dp"
-                android:maxLines="0"
                 android:layout_height="wrap_content"
-                android:text="Corona viruses are a large family of viruses which may cause illness
-in animals or humans. In humans, several coronaviruses are known
-to cause respiratory infections ranging from the common cold to more
-severe diseases such as Middle East Respiratory Syndrome (MERS)
-and Severe Acute Respiratory Syndrome (SARS). The most recently
-discovered coronavirus causes coronavirus disease COVID-19."
+                android:maxLines="0"
+                android:text="@{question.answer}"
                 android:textAppearance="?attr/textAppearanceBody2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

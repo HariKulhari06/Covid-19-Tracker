@@ -5,9 +5,12 @@ import com.hari.covid_19app.api.VirusTrackerApi
 import com.hari.covid_19app.db.CovidDatabase
 import com.hari.covid_19app.db.entity.GlobalState
 import com.hari.covid_19app.db.entity.State
+import com.hari.covid_19app.firebaseDatabase.FirebaseDatabase
 import com.hari.covid_19app.mapper.DataApiResponseToStateEntity
 import com.hari.covid_19app.mapper.GlobalStateResponseToGlobalState
 import com.hari.covid_19app.model.ErrorResult
+import com.hari.covid_19app.model.LoadState
+import com.hari.covid_19app.model.Question
 import com.hari.covid_19app.model.Success
 import com.hari.covid_19app.repository.CovidRepository
 import com.hari.covid_19app.utils.ext.executeWithRetry
@@ -22,6 +25,7 @@ class CovidRepositoryImp @Inject constructor(
     private val covidApiService: CovidApiService,
     private val virusTrackerApi: VirusTrackerApi,
     private val covidDatabase: CovidDatabase,
+    private val firebaseDatabase: FirebaseDatabase,
     private val dataApiResponseToStateEntity: DataApiResponseToStateEntity,
     private val globalStateResponseToGlobalState: GlobalStateResponseToGlobalState
 ) : CovidRepository {
@@ -32,9 +36,13 @@ class CovidRepositoryImp @Inject constructor(
 
     override fun getAllStates(): Flow<List<State>> = covidDatabase.getAllStates()
 
+    override fun getPopularQuestions(): Flow<LoadState<List<Question>>> =
+        firebaseDatabase.getPopularQuestions()
+
     override suspend fun refreshData() {
         refreshDataOfIndia()
         refreshGlobalData()
+        firebaseDatabase.getPopularQuestions()
     }
 
     override suspend fun refreshGlobalData() {
