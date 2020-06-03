@@ -82,7 +82,7 @@
     <!-- 14sp -->
     <style name="TextAppearance.CovidApp.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:fontFamily">@font/sf_pro_display_medium</item>
-        <item name="fontFamily">@font/sf_pro_display_light</item>
+        <item name="fontFamily">@font/sf_pro_display_medium</item>
         <item name="android:textColor">?colorOnBackground</item>
     </style>
 </resources>

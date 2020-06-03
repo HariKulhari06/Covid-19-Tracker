@@ -41,6 +41,7 @@
 
         <!-- Surface color. -->
         <item name="android:colorBackground">@color/color_surface</item>
+        <item name="android:windowBackground">@color/color_surface</item>
         <item name="colorSurface">@color/color_surface</item>
         <item name="colorOnSurface">@color/color_on_surface</item>
 
@@ -56,6 +57,10 @@
     <style name="Theme.CovidApp.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.CovidApp.Splash" parent="Theme.CovidApp.DayNight">
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
     </style>
 
     <style name="Theme.CovidApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

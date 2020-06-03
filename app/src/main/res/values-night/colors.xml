@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <color name="color_primary">#15202B</color>
     <color name="color_secondary">#DD208A</color>
 
     <color name="color_surface">#15202B</color>
     <color name="color_on_surface">#8494A0</color>
-
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-
-
 </resources>

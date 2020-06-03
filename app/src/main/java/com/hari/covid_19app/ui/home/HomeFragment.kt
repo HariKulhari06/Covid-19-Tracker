@@ -33,6 +33,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
     @Inject
     lateinit var itemIndiaStatusCardFactory: ItemIndiaStatusCard.Factory
 
+    @Inject
+    lateinit var itemGlobalStatusCardFactory: ItemGlobalStatusCard.Factory
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough()
@@ -56,12 +59,16 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
         )
         binding.recyclerView.adapter = adapter
 
-        homeViewModel.totalCaseOfIndia.observe(viewLifecycleOwner, Observer { state ->
+        homeViewModel.ui.observe(viewLifecycleOwner, Observer { uiModel ->
             val items = mutableListOf<Group>()
             items.add(itemHealthStatusCardFactory.create())
-            items.add(ItemGlobalStatusCard())
-            state?.let {
-                items.add(itemIndiaStatusCardFactory.create(state))
+
+            uiModel.globalState?.let { globalState ->
+                items.add(itemGlobalStatusCardFactory.create(globalState))
+            }
+
+            uiModel.totalCaseInIndia?.let { totalCaseInIndia ->
+                items.add(itemIndiaStatusCardFactory.create(totalCaseInIndia))
             }
 
             val newsSection = Section(ItemHeader(R.string.latest_updates))

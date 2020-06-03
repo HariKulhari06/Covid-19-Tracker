@@ -14,11 +14,20 @@ fun TextView.setCases(value: String) {
     text = NumberFormat.getNumberInstance(Locale.getDefault()).format(value.toLong())
 }
 
+@BindingAdapter("setCases")
+fun TextView.setCases(value: Int) {
+    text = NumberFormat.getNumberInstance(Locale.getDefault()).format(value.toLong())
+}
+
 @SuppressLint("SetTextI18n")
 @BindingAdapter("setDelta")
 fun TextView.setDelta(value: String) {
     val formattedNumber = NumberFormat.getNumberInstance(Locale.getDefault()).format(value.toLong())
-    text = context.getString(R.string.new_) + " $formattedNumber"
+    val text =
+        "<font color=#cc0029>" + context.getString(R.string.new_) + "</font> <font color=#ffcc00>" + formattedNumber + "</font>"
+
+    this.text = context.getString(R.string.new_) + " $formattedNumber"
+    //this.setText(Html.fromHtml(text));
 }
 
 @SuppressLint("SetTextI18n")

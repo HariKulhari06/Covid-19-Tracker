@@ -10,6 +10,7 @@ import com.github.mikephil.charting.data.PieEntry
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.ItemStatisticsCardBinding
 import com.hari.covid_19app.db.entity.State
+import com.hari.covid_19app.utils.ext.getThemeColor
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 import com.xwray.groupie.databinding.BindableItem
@@ -88,7 +89,7 @@ class ItemStatisticsCard @AssistedInject constructor(
         l.horizontalAlignment = Legend.LegendHorizontalAlignment.RIGHT
         l.orientation = Legend.LegendOrientation.VERTICAL
         l.textSize = 12f
-        l.textColor = Color.CYAN
+        l.textColor = chart.context.getThemeColor(R.attr.colorOnSurface)
         l.typeface = chart.resources.getFont(R.font.sf_pro_display_medium)
         l.setDrawInside(false)
         l.xEntrySpace = 7f

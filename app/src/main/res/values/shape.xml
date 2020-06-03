@@ -4,7 +4,7 @@
     <style name="ShapeAppearance.CovidApp.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <!--Your custom shape here-->
         <item name="cornerFamily">rounded</item>
-
+        <item name="cornerSize">20dp</item>
     </style>
 
     <!--Shape Appearance for medium components like cards, alert dialogs-->
