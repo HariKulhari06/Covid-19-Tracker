@@ -86,9 +86,9 @@ dependencies {
     implementation deps.dagger.android_support
 
 
-
-
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'io.coil-kt:coil:0.11.0'
+    implementation 'io.coil-kt:coil-svg:0.11.0'
 
 }

@@ -8,10 +8,7 @@ import com.hari.covid_19app.db.entity.State
 import com.hari.covid_19app.firebaseDatabase.FirebaseDatabase
 import com.hari.covid_19app.mapper.DataApiResponseToStateEntity
 import com.hari.covid_19app.mapper.GlobalStateResponseToGlobalState
-import com.hari.covid_19app.model.ErrorResult
-import com.hari.covid_19app.model.LoadState
-import com.hari.covid_19app.model.Question
-import com.hari.covid_19app.model.Success
+import com.hari.covid_19app.model.*
 import com.hari.covid_19app.repository.CovidRepository
 import com.hari.covid_19app.utils.ext.executeWithRetry
 import com.hari.covid_19app.utils.ext.toResult
@@ -38,6 +35,9 @@ class CovidRepositoryImp @Inject constructor(
 
     override fun getPopularQuestions(): Flow<LoadState<List<Question>>> =
         firebaseDatabase.getPopularQuestions()
+
+    override fun getPreventions(): Flow<LoadState<List<Prevention>>> =
+        firebaseDatabase.getPreventions()
 
     override suspend fun refreshData() {
         refreshDataOfIndia()

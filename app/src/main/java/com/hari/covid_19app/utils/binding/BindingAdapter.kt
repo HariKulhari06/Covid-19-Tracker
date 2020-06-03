@@ -2,8 +2,11 @@ package com.hari.covid_19app.utils.binding
 
 import android.annotation.SuppressLint
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import coil.api.load
+import coil.decode.SvgDecoder
 import com.hari.covid_19app.R
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
@@ -50,4 +53,12 @@ fun TextView.setLastUpdatedTime(date: String) {
     val formatter = SimpleDateFormat("MMM dd HH:mm aa")
     val output: String = formatter.format(parser.parse(date))
     text = context.getString(R.string.last_updated) + " $output"
+}
+
+@BindingAdapter("loadImage")
+fun ImageView.loadImage(url: String) {
+    this.load(url) {
+        crossfade(true)
+        decoder(SvgDecoder(context))
+    }
 }
