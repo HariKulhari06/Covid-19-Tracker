@@ -1,6 +1,7 @@
 package com.hari.covid_19app.utils.binding
 
 import android.annotation.SuppressLint
+import android.text.Html
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -8,6 +9,7 @@ import androidx.databinding.BindingAdapter
 import coil.api.load
 import coil.decode.SvgDecoder
 import com.hari.covid_19app.R
+import com.hari.covid_19app.db.entity.State
 import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -61,4 +63,12 @@ fun ImageView.loadImage(url: String) {
         crossfade(true)
         decoder(SvgDecoder(context))
     }
+}
+
+
+@SuppressLint("SetTextI18n")
+@BindingAdapter("news")
+fun TextView.setNews(state: State) {
+    val text = state.stateNotes + " <font color=#1366a5> - " + state.state + "</font>"
+    this.text = Html.fromHtml(text)
 }

@@ -36,6 +36,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
     @Inject
     lateinit var itemGlobalStatusCardFactory: ItemGlobalStatusCard.Factory
 
+    @Inject
+    lateinit var itemNewsFactory: ItemNews.Factory
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enterTransition = MaterialFadeThrough.create(requireContext())
@@ -67,16 +70,18 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
                 items.add(itemGlobalStatusCardFactory.create(globalState))
             }
 
-            uiModel.totalCaseInIndia?.let { totalCaseInIndia ->
-                items.add(itemIndiaStatusCardFactory.create(totalCaseInIndia))
+            uiModel.states?.let { states ->
+                val newsSection =
+                    Section(ItemHeader(R.string.latest_updates)).apply { setHideWhenEmpty(true) }
+                states.forEach { state ->
+                    if (state.stateCode == "TT") {
+                        items += itemIndiaStatusCardFactory.create(state)
+                    } else if (state.stateNotes.isNullOrEmpty().not()) {
+                        newsSection.add(itemNewsFactory.create(state))
+                    }
+                }
+                items.add(newsSection)
             }
-
-            val newsSection = Section(ItemHeader(R.string.latest_updates))
-            for (i in 1..50) {
-                newsSection.add(ItemNews())
-            }
-
-            items.add(newsSection)
 
             adapter.update(items)
         })

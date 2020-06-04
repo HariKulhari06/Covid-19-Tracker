@@ -45,5 +45,10 @@
     <string name="call_now">Call Now</string>
     <string name="send_message">Message</string>
     <string name="save_the_human_race">Save The Human Race 🏄</string>
+    <string name="contagion">Contagions</string>
+    <string name="air_transmission">Air Transmission</string>
+    <string name="human_contacts">Human Contacts</string>
+    <string name="containted_object">Containted Object</string>
+    <string name="helpline_number">Helpline Number +91-11-23978046</string>
 
 </resources>

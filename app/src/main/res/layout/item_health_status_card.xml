@@ -6,88 +6,54 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="1dp"
-            app:cardBackgroundColor="@color/pink"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="1dp"
+        app:cardBackgroundColor="@color/pink">
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/item_margin">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/item_margin">
 
-                <TextView
-                    android:id="@+id/title_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/are_you_feeling_sick"
-                    android:textAppearance="?attr/textAppearanceSubtitle1"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <TextView
-                    android:id="@+id/dec"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/if_you_feel_sick_with_any_of_covid_19_symptoms_please_call_or_sms_us_immediately_for_help"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/title_text" />
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/are_you_feeling_sick"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/materialButton2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/item_margin"
-                    android:gravity="center"
-                    android:text="@string/call_now"
-                    android:textAllCaps="false"
-                    android:textColor="@color/dark_blue"
-                    app:icon="@drawable/ic_phone"
-                    app:iconGravity="textStart"
-                    app:iconTint="@color/dark_blue"
-                    app:layout_constraintEnd_toStartOf="@+id/materialButton"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/dec" />
+            <TextView
+                android:id="@+id/dec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/if_you_feel_sick_with_any_of_covid_19_symptoms_please_call_or_sms_us_immediately_for_help"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_text" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/item_margin"
+                android:drawablePadding="10dp"
+                android:text="@string/helpline_number"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="@color/white"
+                app:drawableStartCompat="@drawable/ic_phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dec" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/materialButton"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="@dimen/item_margin"
-                    android:gravity="center"
-                    android:text="@string/send_message"
-                    android:textAllCaps="false"
-                    android:textColor="@color/dark_blue"
-                    app:icon="@drawable/ic_message_circle"
-                    app:iconGravity="textStart"
-                    app:iconTint="@color/dark_blue"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/materialButton2"
-                    app:layout_constraintTop_toBottomOf="@+id/dec" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </com.google.android.material.card.MaterialCardView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 </layout>

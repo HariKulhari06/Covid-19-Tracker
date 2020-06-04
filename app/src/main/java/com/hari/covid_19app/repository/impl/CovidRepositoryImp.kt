@@ -41,8 +41,7 @@ class CovidRepositoryImp @Inject constructor(
 
     override suspend fun refreshData() {
         refreshDataOfIndia()
-        refreshGlobalData()
-        firebaseDatabase.getPopularQuestions()
+       // refreshGlobalData()
     }
 
     override suspend fun refreshGlobalData() {

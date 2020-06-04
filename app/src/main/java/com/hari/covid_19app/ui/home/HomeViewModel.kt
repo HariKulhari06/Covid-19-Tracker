@@ -23,7 +23,7 @@ class HomeViewModel @Inject constructor(
     data class UiModel(
         val isloading: Boolean,
         val appError: AppError?,
-        val totalCaseInIndia: State?,
+        val states: List<State>?,
         val globalState: GlobalState?
     ) {
         companion object {
@@ -36,21 +36,20 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private val totalCaseOfIndia = covidRepository.getTotalCaseInIndia().asLiveData()
+    private val totalCaseOfIndia = covidRepository.getAllStates().asLiveData()
     private val globalState = covidRepository.getGlobalState().asLiveData()
 
 
     val ui: LiveData<UiModel> = combine(
         initialValue = UiModel.EMPTY,
-        liveData1 = totalCaseOfIndia,
-        liveData2 = globalState
-    ) { _, totalCaseInIndia, globalState ->
+        liveData1 = totalCaseOfIndia
+    ) { _, totalCaseInIndia ->
 
         UiModel(
             false,
             appError = null,
-            totalCaseInIndia = totalCaseInIndia,
-            globalState = globalState
+            states = totalCaseInIndia,
+            globalState = null
         )
     }
 }
