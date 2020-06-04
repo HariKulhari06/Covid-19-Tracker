@@ -6,7 +6,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.transition.MaterialFadeThrough
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.FragmentStatisticsBinding
 import com.hari.covid_19app.di.Injectable
@@ -35,8 +34,6 @@ class StatisticsFragment : Fragment(R.layout.fragment_statistics), Injectable {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enterTransition = MaterialFadeThrough.create(requireContext())
-        enterTransition = MaterialFadeThrough.create(requireContext())
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

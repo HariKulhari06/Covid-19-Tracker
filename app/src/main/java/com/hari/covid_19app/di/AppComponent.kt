@@ -3,6 +3,7 @@ package com.hari.covid_19app.di
 import android.app.Application
 import com.hari.covid_19app.CovidApp
 import com.hari.covid_19app.di.module.*
+import com.hari.covid_19app.repository.CovidRepository
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -28,6 +29,7 @@ interface AppComponent : AndroidInjector<CovidApp>, AppComponentInterface {
     }
 
     override fun inject(app: CovidApp)
+    override fun covidRepository(): CovidRepository
 }
 
 fun Application.createAppComponent() = DaggerAppComponent.factory().create(this)

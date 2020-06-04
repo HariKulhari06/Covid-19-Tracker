@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
@@ -22,12 +23,14 @@ import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.ActivityMainBinding
 import com.hari.covid_19app.model.NightMode
 import com.hari.covid_19app.model.NightMode.YES
+import com.hari.covid_19app.repository.workmanager.SyncWork
 import com.hari.covid_19app.utils.ext.assistedActivityViewModels
 import com.hari.covid_19app.utils.ext.getThemeColor
 import com.hari.covid_19app.utils.ext.stringRes
 import com.hari.covid_19app.utils.pref.ThemePrefs
 import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.app_bar_main.view.*
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -55,6 +58,16 @@ class MainActivity : DaggerAppCompatActivity() {
         )
     }
 
+    @Inject
+    lateinit var syncWork: SyncWork
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch {
+            syncWork.start()
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setUpToolbar()
@@ -70,6 +83,8 @@ class MainActivity : DaggerAppCompatActivity() {
                 )
                 .show()
         })
+
+
     }
 
     private fun setUpAppTheme() {
@@ -167,7 +182,6 @@ class MainActivity : DaggerAppCompatActivity() {
             this?.setTint(getThemeColor(R.attr.colorOnSurface))
         }
     }
-
 
 
     private val NightMode.toNightModeValue: String
