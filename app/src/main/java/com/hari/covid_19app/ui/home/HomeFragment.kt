@@ -38,7 +38,6 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
     @Inject
     lateinit var itemNewsFactory: ItemNews.Factory
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val binding = FragmentHomeBinding.bind(view)

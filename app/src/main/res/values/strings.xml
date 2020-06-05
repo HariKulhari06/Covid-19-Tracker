@@ -49,6 +49,8 @@
     <string name="air_transmission">Air Transmission</string>
     <string name="human_contacts">Human Contacts</string>
     <string name="containted_object">Containted Object</string>
-    <string name="helpline_number">Helpline Number +91-11-23978046</string>
+    <string name="helpline_number">Helpline Number +91–11-23978046</string>
+    <string name="latest_update">Latest Update</string>
+    <string name="notification_message">new cases reported, tap the notification for more information.</string>
 
 </resources>

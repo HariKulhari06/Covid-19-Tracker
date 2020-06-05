@@ -17,7 +17,10 @@ class HomeViewModel @Inject constructor(
     private val covidRepository: CovidRepository
 ) : ViewModel() {
     init {
-        viewModelScope.launch(Dispatchers.IO) { covidRepository.refreshData() }
+        viewModelScope.launch(Dispatchers.IO) {
+            covidRepository.refreshDataOfIndia()
+            covidRepository.refreshGlobalData()
+        }
     }
 
     data class UiModel(
@@ -42,14 +45,15 @@ class HomeViewModel @Inject constructor(
 
     val ui: LiveData<UiModel> = combine(
         initialValue = UiModel.EMPTY,
-        liveData1 = totalCaseOfIndia
-    ) { _, totalCaseInIndia ->
+        liveData1 = totalCaseOfIndia,
+        liveData2 = globalState
+    ) { _, totalCaseInIndia, globalState ->
 
         UiModel(
             false,
             appError = null,
             states = totalCaseInIndia,
-            globalState = null
+            globalState = globalState
         )
     }
 }

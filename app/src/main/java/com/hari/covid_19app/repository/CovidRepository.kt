@@ -15,7 +15,6 @@ interface CovidRepository {
     fun getPopularQuestions(): Flow<LoadState<List<Question>>>
     fun getPreventions(): Flow<LoadState<List<Prevention>>>
 
-    suspend fun refreshData()
     suspend fun refreshGlobalData()
     suspend fun refreshDataOfIndia()
 }

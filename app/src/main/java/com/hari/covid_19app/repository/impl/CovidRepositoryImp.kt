@@ -39,11 +39,6 @@ class CovidRepositoryImp @Inject constructor(
     override fun getPreventions(): Flow<LoadState<List<Prevention>>> =
         firebaseDatabase.getPreventions()
 
-    override suspend fun refreshData() {
-        refreshDataOfIndia()
-       // refreshGlobalData()
-    }
-
     override suspend fun refreshGlobalData() {
         try {
             when (val result = virusTrackerApi.getGlobalState()
