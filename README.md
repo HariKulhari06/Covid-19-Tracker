@@ -1,13 +1,13 @@
 
 <p align="center">
-    <a href="./logo">
-    		<img src="app/src/main/ic_launcher-playstore.png" />
-    	</a>
-    	<h1 align="center">COVID-19 Tracker</h1>
+    <a>
+    <img src="app/src/main/ic_launcher-playstore.png" />
+    </a>
+    <h1 align="center">COVID-19 Tracker</h1>
 	<a href="./LICENSE">
 		<img src="https://img.shields.io/github/license/mashape/apistatus.svg" />
 	</a>
-	<a class="badge-align" href="https://www.codacy.com/app/YassinAJDI/PopularMovies?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=YassinAJDI/PopularMovies&amp;utm_campaign=Badge_Grade">
+	<a align="center" href="https://www.codacy.com/app/YassinAJDI/PopularMovies?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=YassinAJDI/PopularMovies&amp;utm_campaign=Badge_Grade">
 		<img src="https://api.codacy.com/project/badge/Grade/7ead85c7910f423d9ecea73041b8dbcf"/>
 	</a>
 </p>
