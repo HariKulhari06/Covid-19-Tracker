@@ -13,19 +13,11 @@
 | Main Screen Dark | Statistics Dark |  FAQ |
 | ![4](media/screen_dark_1.png?raw=true) | ![5](media/screen_dark_2.png?raw=true) | ![6](media/screen_dark_3.png?raw=true) |
 
-## 🌟 Features
-*   Discover the most popular and the most rated movies
-*   User can view and play trailers on youtube 
-*   Shows a list of reviews for each movie
-*   Users can mark a movie as favorite in the details view by tapping a heart icon 
-*   Users can share movie trailers with their network
-*   Offline support: app makes use of `NetworkBoundResource`, which uses database as the single source of truth
-*   Advanced uses of Room
-*   MVVM with Android Architecture Components(Room, LiveData, ViewModel)
-*   Pagination and endless scrolling using Android paging library.
-*   Handle network status and network failures
-*   ConstraintLayout(guidelines, barriers... etc)
-*   Material design.
+## 🌟 About
+It simply loads data from API and stores it in persistence storage (i.e. SQLite Database). Data will be always loaded from local database. Remote data (from API) and Local data is always synchronized.
+- This makes it offline capable 😃. 
+- Clean and Simple Material UI.
+- It supports dark theme too 🌗.
 
 ## 🚀 Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -39,18 +31,14 @@ Follow these steps if you want to get a local copy of the project on your machin
 
 #### 1. Clone or fork the repository by running the command below	
 ```
-git https://github.com/YassinAJDI/PopularMovies.git
+git https://github.com/HariKulhari06/Covid-19-Tracker
 ```
 
 #### 2. Import the project in AndroidStudio, and add API Key
 1.  In Android Studio, go to File -> New -> Import project
 2.  Follew the dialog wizard to choose the folder where you cloned the project and click on open.
-3.  Android Studio imports the projects and builds it for you.
-4.  Add TheMovieDb API Key inside `gradle.properties` file.
+3.  Android Studio imports the projects and builds it for you
 
-```
-TMDB_API_KEY="Your API Key here"
-```
 
 ## 🤝 How to Contribute
 1.  Fork it
@@ -60,18 +48,18 @@ TMDB_API_KEY="Your API Key here"
 5.  Create new Pull Request
 
 ## 📃 Libraries used
-*   [AndroidX](https://developer.android.com/jetpack/androidx/) - Previously known as 'Android support Library'
-*   [Glide](https://github.com/bumptech/glide) - for loading and caching images 
-*   [Retrofit 2](https://github.com/square/retrofit) - Type-safe HTTP client for Android and Java by Square, Inc. 
-*   [Gson](https://github.com/google/gson) - for serialization/deserialization Java Objects into JSON and back
-*   [LiveData](https://developer.android.com/topic/libraries/architecture/livedata)
-*   [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel)
-*   [Paging](https://developer.android.com/topic/libraries/architecture/paging/)
-*   [DataBinding](https://developer.android.com/topic/libraries/data-binding/)
-*   [OkHttp](https://github.com/square/okhttp)
-*   [Timber](https://github.com/JakeWharton/timber)
-*   [CircleImageView](https://github.com/hdodenhof/CircleImageView)
-*   [TextDrawable](https://github.com/amulyakhare/TextDrawable)
+- [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
+- [Coroutines](https://kotlinlang.org/docs/reference/coroutines-overview.html) - For asynchronous and more..
+- [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/-flow/) - A cold asynchronous data stream that sequentially emits values and completes normally or with an exception.
+- [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Collection of libraries that help you design robust, testable, and maintainable apps.
+  - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Data objects that notify views when the underlying database changes.
+  - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - Stores UI-related data that isn't destroyed on UI changes. 
+  - [ViewBinding](https://developer.android.com/topic/libraries/view-binding) - Generates a binding class for each XML layout file present in that module and allows you to more easily write code that interacts with views.
+  - [Room](https://developer.android.com/topic/libraries/architecture/room) - SQLite object mapping library.
+- [Dagger 2](https://dagger.dev/) - Dependency Injection Framework
+- [Retrofit](https://square.github.io/retrofit/) - A type-safe HTTP client for Android and Java.
+- [Coil-kt](https://coil-kt.github.io/coil/) - An image loading library for Android backed by Kotlin Coroutines.
+- [Material Components for Android](https://github.com/material-components/material-components-android) - Modular and customizable Material Design UI components for Android.
 
 ## 📝 License
 This project is released under the MIT license.
@@ -80,7 +68,7 @@ See [LICENSE](./LICENSE) for details.
 ```
 MIT License
 
-Copyright (c) 2018 Yassin Ajdi
+Copyright (c) 2020 Hari Choudhary
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
