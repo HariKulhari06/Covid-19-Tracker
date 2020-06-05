@@ -1,4 +1,4 @@
-![Screen](https://raw.githubusercontent.com/YassinAJDI/PopularMovies/master/screenshots/mockup.png)
+![Screen](app/src/main/ic_launcher-playstore.png)
 <h1 align="center">COVID-19 Tracker</h1>
 
 <p align="center">
