@@ -6,6 +6,13 @@
     <h1 align="center">COVID-19 Tracker</h1>
 </p>
 
+[![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+![Github Followers](https://img.shields.io/github/followers/HariKulhari06?label=Follow&style=social)
+![GitHub stars](https://img.shields.io/github/stars/HariKulhari06/Covid-19-Tracker?style=social)
+![GitHub forks](https://img.shields.io/github/forks/HariKulhari06/Covid-19-Tracker?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/HariKulhari06/Covid-19-Tracker?style=social)
+![GitHub Issues](https://img.shields.io/github/issues/HariKulhari06/Covid-19-Tracker?style=social)
+
 ## ✨ Screenshots
 | Main Screen | Statistics |  Preventions |
 |:-:|:-:|:-:|
