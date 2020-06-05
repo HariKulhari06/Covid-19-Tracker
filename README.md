@@ -1,7 +1,9 @@
-![Screen](app/src/main/ic_launcher-playstore.png)
+
 <h1 align="center">COVID-19 Tracker</h1>
 
 <p align="center">
+
+    ![Screen](app/src/main/ic_launcher-playstore.png)
 	<a href="./LICENSE">
 		<img src="https://img.shields.io/github/license/mashape/apistatus.svg" />
 	</a>
