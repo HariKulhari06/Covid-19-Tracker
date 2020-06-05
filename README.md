@@ -1,4 +1,4 @@
-![Screen](app/src/main/ic_launcher-playstore.png)
+<p align = "center>![Screen](app/src/main/ic_launcher-playstore.png)</p>
 <h1 align="center">COVID-19 Tracker</h1>
 
 <p align="center">
