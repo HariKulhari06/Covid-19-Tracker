@@ -1,4 +1,4 @@
-package com.hari.tmdb.model.mapper
+package com.hari.covid_19app.model
 
 fun <F, T> Mapper<F, T>.forLists(): suspend (List<F>) -> List<T> {
     return { list -> list.map { item -> map(item) } }

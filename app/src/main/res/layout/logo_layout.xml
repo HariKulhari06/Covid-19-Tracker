@@ -15,15 +15,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:textAppearance="?attr/textAppearanceSubtitle1"
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
-        android:text="Covid-19"
         android:fontFamily="@font/sf_pro_display_bold"
+        android:text="@string/covid_19"
         android:textAllCaps="true"
+        android:textAppearance="?attr/textAppearanceSubtitle1"
         android:textColor="?attr/colorOnSurface"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintStart_toEndOf="@+id/imageView"
@@ -31,12 +31,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:textColor="?attr/colorOnSurface"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Virus Tracker"
+        android:text="@string/tracker_app"
         android:textAllCaps="true"
         android:textAppearance="?attr/textAppearanceCaption"
+        android:textColor="?attr/colorOnSurface"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/textView2"

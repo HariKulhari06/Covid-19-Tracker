@@ -12,7 +12,9 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class FirebaseDatabaseImp @Inject constructor() : FirebaseDatabase {
 
     override fun getPopularQuestions() = callbackFlow<LoadState<List<Question>>> {

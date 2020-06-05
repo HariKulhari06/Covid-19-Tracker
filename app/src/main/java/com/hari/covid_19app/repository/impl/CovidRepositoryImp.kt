@@ -12,7 +12,6 @@ import com.hari.covid_19app.model.*
 import com.hari.covid_19app.repository.CovidRepository
 import com.hari.covid_19app.utils.ext.executeWithRetry
 import com.hari.covid_19app.utils.ext.toResult
-import com.hari.tmdb.model.mapper.toLambda
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

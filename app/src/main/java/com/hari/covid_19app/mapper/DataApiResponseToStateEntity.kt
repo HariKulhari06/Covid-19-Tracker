@@ -2,7 +2,7 @@ package com.hari.covid_19app.mapper
 
 import com.hari.covid_19app.api.response.DataApiResponse
 import com.hari.covid_19app.db.entity.State
-import com.hari.tmdb.model.mapper.Mapper
+import com.hari.covid_19app.model.Mapper
 import javax.inject.Inject
 
 class DataApiResponseToStateEntity @Inject constructor() : Mapper<DataApiResponse, List<State>> {

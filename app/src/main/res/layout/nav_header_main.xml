@@ -16,13 +16,13 @@
 
 
     <ImageView
-        android:padding="7dp"
         android:id="@+id/image_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/activity_vertical_margin"
         android:layout_marginRight="@dimen/activity_vertical_margin"
         android:background="?selectableItemBackgroundBorderless"
+        android:padding="7dp"
         android:src="@drawable/ic_close"
         android:tint="?attr/colorOnSurface"
         app:layout_constraintBottom_toBottomOf="parent"
