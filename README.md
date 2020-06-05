@@ -15,7 +15,7 @@
 |:-:|:-:|:-:|
 | ![Fist](media/screen_1.png?raw=true) | ![3](media/screen_2.png?raw=true) | ![3](media/screen_3.png?raw=true) |
 | Movie Details | Trailers |  Reviews |
-| ![4](media/screen_dark_1.png?raw=true) | ![5](media/screen_dark_2.png?raw=true) | ![6](screenshots/Screenshot_4.jpg?raw=true) |
+| ![4](media/screen_dark_1.png?raw=true) | ![5](media/screen_dark_2.png?raw=true) | ![6](media/screen_dark_3.jpg?raw=true) |
 
 ## 🌟 Features
 *   Discover the most popular and the most rated movies
