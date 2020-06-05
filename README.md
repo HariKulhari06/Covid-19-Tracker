@@ -15,7 +15,7 @@
 |:-:|:-:|:-:|
 | ![Fist](media/screen_1.png?raw=true) | ![3](media/screen_2.png?raw=true) | ![3](media/screen_3.png?raw=true) |
 | Main Screen Dark | Statistics Dark |  FAQ |
-| ![4](media/screen_dark_1.png?raw=true) | ![5](media/screen_dark_2.png?raw=true) | ![6](media\screen_dark_3.png?raw=true) |
+| ![4](media/screen_dark_1.png?raw=true) | ![5](media/screen_dark_2.png?raw=true) | ![6](media/screen_dark_3.png?raw=true) |
 
 ## 🌟 Features
 *   Discover the most popular and the most rated movies
