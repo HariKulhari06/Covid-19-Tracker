@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "620254805800",
+    "firebase_url": "https://covid-19-tracker-4bb81.firebaseio.com",
+    "project_id": "covid-19-tracker-4bb81",
+    "storage_bucket": "covid-19-tracker-4bb81.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:620254805800:android:d194f7cd038693a1081a1d",
+        "android_client_info": {
+          "package_name": "com.hari.covid_19app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "620254805800-q5n8dn0e94q605sonhs1j1d8utcj0coq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hari.covid_19app",
+            "certificate_hash": "cda439fb4b49eaa6c8fa84eae6f16e945cf7e155"
+          }
+        },
+        {
+          "client_id": "620254805800-m4k12ej0f0slqgt8g9vkbhm4hgvo7rds.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNJIi7Lz6ytgE_IPNNDNtBeyL522aQrow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "620254805800-m4k12ej0f0slqgt8g9vkbhm4hgvo7rds.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
