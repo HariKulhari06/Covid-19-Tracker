@@ -11,8 +11,10 @@ import com.hari.covid_19app.ui.item.CardItemDecoration
 import com.hari.covid_19app.ui.item.ItemSymptomsImage
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.databinding.GroupieViewHolder
+import com.xwray.groupie.viewbinding.GroupieViewHolder
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SymptomsFragment : Fragment(R.layout.fragment_symptoms) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

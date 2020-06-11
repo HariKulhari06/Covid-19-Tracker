@@ -1,4 +1,4 @@
-package com.hari.covid_19app.repository.impl
+package com.hari.covid_19app.repository
 
 import com.hari.covid_19app.api.CovidApiService
 import com.hari.covid_19app.api.VirusTrackerApi
@@ -9,7 +9,6 @@ import com.hari.covid_19app.firebaseDatabase.FirebaseDatabase
 import com.hari.covid_19app.mapper.DataApiResponseToStateEntity
 import com.hari.covid_19app.mapper.GlobalStateResponseToGlobalState
 import com.hari.covid_19app.model.*
-import com.hari.covid_19app.repository.CovidRepository
 import com.hari.covid_19app.utils.ext.executeWithRetry
 import com.hari.covid_19app.utils.ext.toResult
 import kotlinx.coroutines.flow.Flow

@@ -4,39 +4,23 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.FragmentHomeBinding
-import com.hari.covid_19app.di.Injectable
 import com.hari.covid_19app.ui.item.*
-import com.hari.covid_19app.utils.ext.assistedViewModels
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Section
-import com.xwray.groupie.databinding.GroupieViewHolder
-import javax.inject.Inject
-import javax.inject.Provider
+import com.xwray.groupie.viewbinding.GroupieViewHolder
+import dagger.hilt.android.AndroidEntryPoint
 
-class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
+@AndroidEntryPoint
+class HomeFragment : Fragment(R.layout.fragment_home) {
 
-    @Inject
-    lateinit var homeViewModelProvider: Provider<HomeViewModel>
-    private val homeViewModel: HomeViewModel by assistedViewModels {
-        homeViewModelProvider.get()
-    }
+    private val homeViewModel: HomeViewModel by viewModels<HomeViewModel>()
 
-    @Inject
-    lateinit var itemHealthStatusCardFactory: ItemHealthStatusCard.Factory
-
-    @Inject
-    lateinit var itemIndiaStatusCardFactory: ItemIndiaStatusCard.Factory
-
-    @Inject
-    lateinit var itemGlobalStatusCardFactory: ItemGlobalStatusCard.Factory
-
-    @Inject
-    lateinit var itemNewsFactory: ItemNews.Factory
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -58,10 +42,10 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
 
         homeViewModel.ui.observe(viewLifecycleOwner, Observer { uiModel ->
             val items = mutableListOf<Group>()
-            items.add(itemHealthStatusCardFactory.create())
+            items.add(ItemHealthStatusCard())
 
             uiModel.globalState?.let { globalState ->
-                items.add(itemGlobalStatusCardFactory.create(globalState))
+                items.add(ItemGlobalStatusCard(globalState))
             }
 
             uiModel.states?.let { states ->
@@ -69,9 +53,9 @@ class HomeFragment : Fragment(R.layout.fragment_home), Injectable {
                     Section(ItemHeader(R.string.latest_updates)).apply { setHideWhenEmpty(true) }
                 states.forEach { state ->
                     if (state.stateCode == "TT") {
-                        items += itemIndiaStatusCardFactory.create(state)
+                        items += ItemIndiaStatusCard(state)
                     } else if (state.stateNotes.isNullOrEmpty().not()) {
-                        newsSection.add(itemNewsFactory.create(state))
+                        newsSection.add(ItemNews(state))
                     }
                 }
                 items.add(newsSection)

@@ -1,5 +1,6 @@
 package com.hari.covid_19app.ui.preventions
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -8,9 +9,8 @@ import com.hari.covid_19app.model.Prevention
 import com.hari.covid_19app.repository.CovidRepository
 import com.hari.covid_19app.utils.ext.combine
 import com.hari.covid_19app.utils.ext.toAppError
-import javax.inject.Inject
 
-class PreventionsViewModel @Inject constructor(
+class PreventionsViewModel @ViewModelInject constructor(
     private val covidRepository: CovidRepository
 ) : ViewModel() {
     class UiModel(

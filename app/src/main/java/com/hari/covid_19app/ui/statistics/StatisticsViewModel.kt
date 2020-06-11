@@ -1,11 +1,11 @@
 package com.hari.covid_19app.ui.statistics
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.hari.covid_19app.repository.CovidRepository
-import javax.inject.Inject
 
-class StatisticsViewModel @Inject constructor(
+class StatisticsViewModel @ViewModelInject constructor(
     private val covidRepository: CovidRepository
 ) : ViewModel() {
 

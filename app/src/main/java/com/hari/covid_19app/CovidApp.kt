@@ -1,22 +1,17 @@
 package com.hari.covid_19app
 
-import com.hari.covid_19app.di.AppComponent
-import com.hari.covid_19app.di.AppComponentHolder
-import com.hari.covid_19app.di.createAppComponent
+import android.app.Application
+import androidx.hilt.work.HiltWorkerFactory
+import androidx.work.Configuration
 import com.hari.covid_19app.di.initializer.AppInitializers
-import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
-class CovidApp : DaggerApplication(), AppComponentHolder {
+@HiltAndroidApp
+class CovidApp : Application(), Configuration.Provider {
 
-    override val appComponent: AppComponent by lazy {
-        createAppComponent()
-    }
-
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return appComponent
-    }
+    @Inject
+    lateinit var workerFactory: HiltWorkerFactory
 
     @Inject
     lateinit var initializers: AppInitializers
@@ -24,6 +19,12 @@ class CovidApp : DaggerApplication(), AppComponentHolder {
     override fun onCreate() {
         super.onCreate()
         initializers.initialize(this)
+    }
+
+    override fun getWorkManagerConfiguration(): Configuration {
+        return Configuration.Builder()
+            .setWorkerFactory(workerFactory)
+            .build()
     }
 
 }

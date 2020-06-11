@@ -11,6 +11,5 @@ class FirebaseDatabaseInitializer @Inject constructor() :
     override fun initialize(application: Application) {
         val database = Firebase.database
         database.setPersistenceEnabled(true)
-
     }
 }

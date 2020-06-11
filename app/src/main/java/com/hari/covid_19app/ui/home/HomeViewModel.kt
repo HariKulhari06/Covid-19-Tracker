@@ -1,5 +1,6 @@
 package com.hari.covid_19app.ui.home
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -11,9 +12,8 @@ import com.hari.covid_19app.repository.CovidRepository
 import com.hari.covid_19app.utils.ext.combine
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-class HomeViewModel @Inject constructor(
+class HomeViewModel @ViewModelInject constructor(
     private val covidRepository: CovidRepository
 ) : ViewModel() {
     init {

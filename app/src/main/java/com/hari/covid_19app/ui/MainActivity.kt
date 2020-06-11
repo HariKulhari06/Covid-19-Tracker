@@ -3,6 +3,8 @@ package com.hari.covid_19app.ui
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageView
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
@@ -23,19 +25,17 @@ import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.ActivityMainBinding
 import com.hari.covid_19app.model.NightMode
 import com.hari.covid_19app.model.NightMode.YES
-import com.hari.covid_19app.repository.workmanager.SyncWork
-import com.hari.covid_19app.utils.ext.assistedActivityViewModels
 import com.hari.covid_19app.utils.ext.getThemeColor
 import com.hari.covid_19app.utils.ext.stringRes
 import com.hari.covid_19app.utils.pref.ThemePrefs
-import dagger.android.support.DaggerAppCompatActivity
-import kotlinx.android.synthetic.main.app_bar_main.view.*
+import com.hari.covid_19app.workmanager.SyncWork
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Provider
 
 
-class MainActivity : DaggerAppCompatActivity() {
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
         DataBindingUtil.setContentView<ActivityMainBinding>(
             this,
@@ -43,11 +43,7 @@ class MainActivity : DaggerAppCompatActivity() {
         )
     }
 
-    @Inject
-    lateinit var systemViewModelProvider: Provider<SystemViewModel>
-    private val systemViewModel: SystemViewModel by assistedActivityViewModels {
-        systemViewModelProvider.get()
-    }
+    private val systemViewModel: SystemViewModel by viewModels<SystemViewModel>()
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -166,7 +162,7 @@ class MainActivity : DaggerAppCompatActivity() {
             supportActionBar?.title = ""
         }
 
-        binding.appBarMain.logo_layout.isVisible = config.isShowLogoImage
+        binding.appBarMain.logoLayout.isVisible = config.isShowLogoImage
 
         binding.appBarMain.toolbar.navigationIcon = if (config.isTopLevel) {
             ContextCompat.getDrawable(
@@ -205,7 +201,6 @@ class MainActivity : DaggerAppCompatActivity() {
                 NightMode.NO
             }
         }
-
     }
 
 }

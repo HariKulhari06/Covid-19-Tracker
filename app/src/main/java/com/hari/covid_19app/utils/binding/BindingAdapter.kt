@@ -28,11 +28,7 @@ fun TextView.setCases(value: Int) {
 @BindingAdapter("setDelta")
 fun TextView.setDelta(value: String) {
     val formattedNumber = NumberFormat.getNumberInstance(Locale.getDefault()).format(value.toLong())
-    val text =
-        "<font color=#cc0029>" + context.getString(R.string.new_) + "</font> <font color=#ffcc00>" + formattedNumber + "</font>"
-
     this.text = context.getString(R.string.new_) + " $formattedNumber"
-    //this.setText(Html.fromHtml(text));
 }
 
 @SuppressLint("SetTextI18n")
@@ -53,7 +49,7 @@ fun TextView.setDeltaOrGone(value: String) {
 fun TextView.setLastUpdatedTime(date: String) {
     val parser = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
     val formatter = SimpleDateFormat("MMM dd HH:mm aa")
-    val output: String = formatter.format(parser.parse(date))
+    val output: String = formatter.format(parser.parse(date)!!)
     text = context.getString(R.string.last_updated) + " $output"
 }
 
@@ -70,5 +66,5 @@ fun ImageView.loadImage(url: String) {
 @BindingAdapter("news")
 fun TextView.setNews(state: State) {
     val text = state.stateNotes + " <font color=#1366a5> - " + state.state + "</font>"
-    this.text = Html.fromHtml(text)
+    this.text = Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY)
 }

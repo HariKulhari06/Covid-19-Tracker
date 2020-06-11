@@ -5,39 +5,28 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.FragmentPopularQuestionsBinding
-import com.hari.covid_19app.di.Injectable
 import com.hari.covid_19app.model.Question
 import com.hari.covid_19app.ui.SystemViewModel
 import com.hari.covid_19app.ui.item.CardItemDecoration
 import com.hari.covid_19app.ui.item.ItemPopularQuestion
-import com.hari.covid_19app.utils.ext.assistedActivityViewModels
-import com.hari.covid_19app.utils.ext.assistedViewModels
 import com.xwray.groupie.Group
 import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.databinding.GroupieViewHolder
-import javax.inject.Inject
-import javax.inject.Provider
+import com.xwray.groupie.viewbinding.GroupieViewHolder
+import dagger.hilt.android.AndroidEntryPoint
 
-class PopularQuestionFragment : Fragment(R.layout.fragment_popular_questions), Injectable {
+@AndroidEntryPoint
+class PopularQuestionFragment : Fragment(R.layout.fragment_popular_questions) {
 
-    @Inject
-    lateinit var popularQuestionsViewModelProvider: Provider<PopularQuestionsViewModel>
-    private val popularQuestionsViewModel: PopularQuestionsViewModel by assistedViewModels {
-        popularQuestionsViewModelProvider.get()
-    }
+    private val popularQuestionsViewModel: PopularQuestionsViewModel by viewModels<PopularQuestionsViewModel>()
 
-    @Inject
-    lateinit var systemViewModelProvider: Provider<SystemViewModel>
-    private val systemViewModel: SystemViewModel by assistedActivityViewModels {
-        systemViewModelProvider.get()
-    }
+    private val systemViewModel: SystemViewModel by activityViewModels<SystemViewModel>()
 
-    @Inject
-    lateinit var itemPopularQuestionFactory: ItemPopularQuestion.Factory
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,7 +59,7 @@ class PopularQuestionFragment : Fragment(R.layout.fragment_popular_questions), I
             uiModel.questions?.let { questions ->
                 val items = mutableListOf<Group>()
                 questions.forEach { question: Question ->
-                    items.add(itemPopularQuestionFactory.create(question))
+                    items.add(ItemPopularQuestion(question))
                 }
                 adapter.update(items)
             }
