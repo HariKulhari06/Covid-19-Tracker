@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-android-extensions'
     id 'com.google.gms.google-services'
     id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
     id 'androidx.navigation.safeargs.kotlin'
 }
 
@@ -47,6 +48,12 @@ android {
     dataBinding {
         enabled = true
     }
+    kotlinOptions {
+        jvmTarget = "1.8"
+        freeCompilerArgs += [
+                "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                "-Xuse-experimental=kotlinx.coroutines.ObsoleteCoroutinesApi"]
+    }
 }
 
 dependencies {
@@ -64,34 +71,41 @@ dependencies {
     implementation deps.navigation.ui_ktx
 
     implementation deps.groupie.main
-    implementation deps.groupie.databinding
+    implementation deps.groupie.viewbinding
+
 
     implementation deps.firebase.firebase_database_ktx
 
+    //room database
     kapt deps.room.compiler
     implementation deps.room.runtime
     implementation deps.room.ktx
 
+    //retrofit
     implementation deps.retrofit.runtime
     implementation deps.retrofit.gson
-    implementation deps.okhttp_logging_interceptor
+    implementation deps.okhttp.okhttp_logging_interceptor
+    implementation deps.okhttp.okhttp
 
-    kapt deps.dagger.compiler
-    kapt deps.dagger.android_support_compiler
-    kapt deps.dagger.assistedInjectProcessor
-    implementation deps.dagger.runtime
-    implementation deps.dagger.android
-    implementation deps.dagger.android_support
+    //dagger
     implementation deps.dagger.assistedInjectAnnotations
-    implementation deps.dagger.android_support
+    kapt deps.dagger.assistedInjectProcessor
 
+    //hilt
+    kapt deps.hilt.compiler
+    implementation deps.hilt.android
+    kapt deps.hilt.androidCompiler
+    implementation deps.hilt.viewmodel
+    implementation deps.hilt.work
 
+    //work manager
     implementation deps.work.runtime_ktx
 
+    //coil
+    implementation deps.coil.core
+    implementation deps.coil.svg
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'androidx.preference:preference:1.1.1'
-    implementation 'io.coil-kt:coil:0.11.0'
-    implementation 'io.coil-kt:coil-svg:0.11.0'
-
 }
+

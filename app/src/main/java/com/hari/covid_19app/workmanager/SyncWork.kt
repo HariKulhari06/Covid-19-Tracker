@@ -1,12 +1,13 @@
-package com.hari.covid_19app.repository.workmanager
+package com.hari.covid_19app.workmanager
 
 import android.content.Context
 import androidx.work.*
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 class SyncWork @Inject constructor(
-    context: Context
+    @ApplicationContext context: Context
 ) {
     private val workManager = WorkManager.getInstance(context)
     suspend fun start() {

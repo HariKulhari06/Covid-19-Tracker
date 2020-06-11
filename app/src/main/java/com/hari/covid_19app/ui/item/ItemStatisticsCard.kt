@@ -1,6 +1,7 @@
 package com.hari.covid_19app.ui.item
 
 import android.graphics.Color
+import android.view.View
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend
@@ -11,12 +12,10 @@ import com.hari.covid_19app.R
 import com.hari.covid_19app.databinding.ItemStatisticsCardBinding
 import com.hari.covid_19app.db.entity.State
 import com.hari.covid_19app.utils.ext.getThemeColor
-import com.squareup.inject.assisted.Assisted
-import com.squareup.inject.assisted.AssistedInject
-import com.xwray.groupie.databinding.BindableItem
+import com.xwray.groupie.viewbinding.BindableItem
 
-class ItemStatisticsCard @AssistedInject constructor(
-    @Assisted private val state: State
+class ItemStatisticsCard constructor(
+    private val state: State
 ) : BindableItem<ItemStatisticsCardBinding>() {
     override fun getLayout() = R.layout.item_statistics_card
 
@@ -48,9 +47,9 @@ class ItemStatisticsCard @AssistedInject constructor(
         )
 
         val colors = mutableListOf<Int>()
-        colors.add(chart.context.resources.getColor(R.color.blue))
-        colors.add(chart.context.resources.getColor(R.color.green))
-        colors.add(chart.context.resources.getColor(R.color.red))
+        colors.add(chart.context.getColor(R.color.blue))
+        colors.add(chart.context.getColor(R.color.green))
+        colors.add(chart.context.getColor(R.color.red))
 
         val dataSet = PieDataSet(entries, "Covid-19 Status")
 
@@ -97,8 +96,7 @@ class ItemStatisticsCard @AssistedInject constructor(
 
     }
 
-    @AssistedInject.Factory
-    interface Factory {
-        fun create(state: State): ItemStatisticsCard
+    override fun initializeViewBinding(view: View): ItemStatisticsCardBinding {
+        return ItemStatisticsCardBinding.bind(view)
     }
 }
