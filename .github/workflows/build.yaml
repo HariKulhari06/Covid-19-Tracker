@@ -3,7 +3,7 @@ name: Build
 
 on:
   # Trigger on every pull request and on push
-  # to the `main` branch.
+  # to the `master` branch.
   pull_request:
   push:
     branches:

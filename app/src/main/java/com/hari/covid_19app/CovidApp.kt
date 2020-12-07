@@ -26,4 +26,5 @@ class CovidApp : Application(), Configuration.Provider {
             .setWorkerFactory(workerFactory)
             .build()
     }
+
 }

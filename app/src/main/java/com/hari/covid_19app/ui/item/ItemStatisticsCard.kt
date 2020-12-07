@@ -2,6 +2,7 @@ package com.hari.covid_19app.ui.item
 
 import android.graphics.Color
 import android.view.View
+import androidx.core.content.res.ResourcesCompat
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.components.Legend
@@ -58,7 +59,12 @@ class ItemStatisticsCard constructor(
         val pieData = PieData(dataSet)
         pieData.setValueTextSize(12f)
         pieData.setValueTextColor(Color.BLACK)
-        pieData.setValueTypeface(chart.context.resources.getFont(R.font.sf_pro_display_light))
+        pieData.setValueTypeface(
+            ResourcesCompat.getFont(
+                chart.context,
+                R.font.sf_pro_display_medium
+            )
+        )
 
         chart.data = pieData
         chart.invalidate()
@@ -89,7 +95,7 @@ class ItemStatisticsCard constructor(
         l.orientation = Legend.LegendOrientation.VERTICAL
         l.textSize = 12f
         l.textColor = chart.context.getThemeColor(R.attr.colorOnSurface)
-        l.typeface = chart.resources.getFont(R.font.sf_pro_display_medium)
+        l.typeface = ResourcesCompat.getFont(chart.context, R.font.sf_pro_display_medium)
         l.setDrawInside(false)
         l.xEntrySpace = 7f
         l.yEntrySpace = 20f
