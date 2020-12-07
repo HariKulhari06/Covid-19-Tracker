@@ -64,10 +64,6 @@ android {
                 "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
                 "-Xuse-experimental=kotlinx.coroutines.ObsoleteCoroutinesApi"]
     }
-
-    lintOptions {
-        abortOnError false
-    }
 }
 
 dependencies {
@@ -120,6 +116,6 @@ dependencies {
     implementation deps.coil.svg
 
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
-    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.preference:preference-ktx:1.1.1'
 }
 
