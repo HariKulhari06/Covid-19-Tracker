@@ -64,6 +64,10 @@ android {
                 "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
                 "-Xuse-experimental=kotlinx.coroutines.ObsoleteCoroutinesApi"]
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
