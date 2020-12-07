@@ -44,10 +44,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             val items = mutableListOf<Group>()
             items.add(ItemHealthStatusCard())
 
-            uiModel.globalState?.let { globalState ->
-                items.add(ItemGlobalStatusCard(globalState))
-            }
-
             uiModel.states?.let { states ->
                 val newsSection =
                     Section(ItemHeader(R.string.latest_updates)).apply { setHideWhenEmpty(true) }

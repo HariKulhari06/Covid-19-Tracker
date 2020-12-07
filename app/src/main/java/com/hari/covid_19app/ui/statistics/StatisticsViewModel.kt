@@ -6,7 +6,7 @@ import androidx.lifecycle.asLiveData
 import com.hari.covid_19app.repository.CovidRepository
 
 class StatisticsViewModel @ViewModelInject constructor(
-    private val covidRepository: CovidRepository
+    covidRepository: CovidRepository
 ) : ViewModel() {
 
     val states = covidRepository.getAllStates().asLiveData()
